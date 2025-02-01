@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Required for Daterangepicker) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Moment.js (Required for Date Ranges) -->
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+<!-- Daterangepicker.js -->
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>
+
+
+<!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Sidebar Menu -->
+<div class="sidebar" id="sidebar">
+    <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
+        <i class="fas fa-plus"></i> Create New Order
+    </button>
+    <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+        <i class="fas fa-box"></i> Add Item to Stock
+    </button>
+    <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
+        <i class="fas fa-money-bill"></i> Add Expense
+    </button>
+    <a href="{% url 'summary' %}" class="btn btn-secondary w-100 mb-3">
+        <i class="fas fa-chart-bar"></i> View Summary
+    </a>
+
+    <!-- Date Range Picker -->
+    <div class="date-picker-container">
+        <label for="date-range" class="date-label"><i class="fas fa-calendar-alt"></i> Select Date:</label>
+        <input type="text" id="date-range" class="form-control date-picker" placeholder="Choose date range">
+
+        <label for="date-range" class="date-label"><i class="fas fa-calendar-alt"></i> End date:</label>
+        <input type="text" id="date-range" class="form-control date-picker" placeholder="Choose date range">
+    </div>
+</div>
+
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Function to load a form into the modal
+        function loadFormIntoModal(url) {
+            $.get(url, function(data) {
+                $('#modal-container').html(data);
+                $('#modal').modal('show');
+            });
+        }
+    </script>
+
+
+<style>
+    <style>
+ .card {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px; /* Add space between cards */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-group-item .text-muted {
+    font-size: 0.9rem;
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+/* Optional: Adding padding to the container to separate all cards */
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Adjust margin between cards for a more spaced out layout */
+.row {
+    margin-bottom: 20px;
+}
+
+.text-muted{
+    margin-left: 20px;
+}
+
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Date Picker Styles */
+.date-picker-container {
+    margin-top: 20px;
+}
+
+.date-label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.date-picker {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+
+</style>
+</style>
+</body>
+</html>

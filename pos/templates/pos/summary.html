@@ -1,0 +1,122 @@
+{% extends 'pos/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">📊 Sales Summary</h1>
+
+    <!-- Summary Cards -->
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-success shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Total Sales</h5>
+                    <p class="card-text h3">$ {{ total_sales }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-warning shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Total Stock Value</h5>
+                    <p class="card-text h3">$ {{ total_stock_value }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-danger shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Total Expenses</h5>
+                    <p class="card-text h3">$ {{ total_expenses }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h5 class="text-center">📦 Stock Overview</h5>
+            <canvas id="stockChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h5 class="text-center">💰 Expense Breakdown</h5>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="mt-5">
+        <h4>🛒 Recent Sales</h4>
+        <table class="table table-striped table-hover shadow">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Table</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>Table {{ order.table_number }}</td>
+                    <td>$ {{ order.total_price }}</td>
+                    <td>{{ order.created_at|date:"M d, Y H:i" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No sales yet.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Include Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Stock Chart
+    var stockCtx = document.getElementById('stockChart').getContext('2d');
+    new Chart(stockCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ stock_labels|safe }},
+            datasets: [{
+                label: 'Stock Quantity',
+                data: {{ stock_values|safe }},
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Expense Chart
+    var expenseCtx = document.getElementById('expenseChart').getContext('2d');
+    new Chart(expenseCtx, {
+        type: 'doughnut',
+        data: {
+            labels: {{ expense_labels|safe }},
+            datasets: [{
+                label: 'Expenses',
+                data: {{ expense_values|safe }},
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50', '#9C27B0'],
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,393 @@
+{% extends 'pos/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<!-- jQuery (Required for Daterangepicker) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Moment.js (Required for Date Ranges) -->
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+<!-- Daterangepicker.js -->
+<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+
+<style>
+ .card {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px; /* Add space between cards */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-group-item .text-muted {
+    font-size: 0.9rem;
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+/* Optional: Adding padding to the container to separate all cards */
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Adjust margin between cards for a more spaced out layout */
+.row {
+    margin-bottom: 20px;
+}
+
+.text-muted{
+    margin-left: 20px;
+}
+
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Date Picker Styles */
+.date-picker-container {
+    margin-top: 20px;
+}
+
+.date-label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.date-picker {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+
+</style>
+<h1>Active Orders</h1>
+<div class="row">
+    {% for order in orders %}
+    <!-- <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Table {{ order.table_number }}</h5>
+                <ul>
+                    {% for item in order.order_items.all %}
+                    <li>{{ item.quantity }} x {{ item.item.name }} - ${{ item.total_price }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Total: ${{ order.total_price }}</p>
+                <button class="btn btn-primary" onclick="loadFormIntoModal('{% url 'add_item_to_order' order.id %}')">
+                    Add Item
+                </button>
+            </div>
+        </div>
+    </div> -->
+    <div class="card mb-4 shadow-lg rounded-lg">
+        <div class="card-body">
+            <h5 class="card-title text-primary font-weight-bold">Table {{ order.table_number }}</h5>
+            
+            <ul class="list-group mb-3">
+                {% for item in order.order_items.all %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>{{ item.quantity }} x {{ item.item.name }}</span><br>
+                    <span class="text-muted"> sh.{{ item.total_price }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+    
+            <div class="d-flex justify-content-between">
+                <p class="font-weight-bold">Total:</p>
+                <p class="font-weight-bold text-success">sh.{{ order.total_price }}</p>
+            </div>
+    
+            <button class="btn btn-lg btn-primary w-100 mt-3" onclick="loadFormIntoModal('{% url 'add_item_to_order' order.id %}')">
+                Add Item
+            </button>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+
+
+
+
+<!-- Sidebar Menu -->
+<!-- <div class="sidebar" id="sidebar">
+    <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
+        <i class="fas fa-plus"></i> Create New Order
+    </button>
+    <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+        <i class="fas fa-box"></i> Add Item to Stock
+    </button>
+    <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
+        <i class="fas fa-money-bill"></i> Add Expense
+    </button>
+    <a href="{% url 'summary' %}" class="btn btn-secondary w-100">
+        <i class="fas fa-chart-bar"></i> View Summary
+    </a>
+</div> -->
+
+<script>
+    function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+
+$(document).ready(function() {
+    $('#date-range').daterangepicker({
+        autoApply: true,
+        opens: 'left',
+        locale: {
+            format: 'YYYY-MM-DD'
+        }
+    });
+});
+
+// Sidebar Toggle Function
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+
+</script>
+
+<!-- <div class="sidebar">
+    <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
+        <i class="fas fa-plus"></i> Create New Order
+    </button>
+    <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+        <i class="fas fa-box"></i> Add Item to Stock
+    </button>
+    <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
+        <i class="fas fa-money-bill"></i> Add Expense
+    </button>
+    <a href="{% url 'summary' %}" class="btn btn-secondary w-100">
+        <i class="fas fa-chart-bar"></i> View Summary
+    </a>
+</div> -->
+
+
+<!-- <button class="btn btn-success" onclick="loadFormIntoModal('{% url 'create_order' %}')">
+    Create New Order
+</button>
+<button class="btn btn-info" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+    Add Item to Stock
+</button>
+<button class="btn btn-warning" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
+    Add Expense
+</button>
+<a href="{% url 'summary' %}" class="btn btn-secondary">View Summary</a> -->
+{% endblock %}
