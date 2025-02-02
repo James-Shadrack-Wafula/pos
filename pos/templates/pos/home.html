@@ -12,6 +12,10 @@
 <!-- Daterangepicker.js -->
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+<!-- Include jQuery and jQuery UI -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
  .card {
@@ -278,22 +282,7 @@
 <h1>Active Orders</h1>
 <div class="row">
     {% for order in orders %}
-    <!-- <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">Table {{ order.table_number }}</h5>
-                <ul>
-                    {% for item in order.order_items.all %}
-                    <li>{{ item.quantity }} x {{ item.item.name }} - ${{ item.total_price }}</li>
-                    {% endfor %}
-                </ul>
-                <p>Total: ${{ order.total_price }}</p>
-                <button class="btn btn-primary" onclick="loadFormIntoModal('{% url 'add_item_to_order' order.id %}')">
-                    Add Item
-                </button>
-            </div>
-        </div>
-    </div> -->
+    
     <div class="card mb-4 shadow-lg rounded-lg">
         <div class="card-body">
             <h5 class="card-title text-primary font-weight-bold">Table {{ order.table_number }}</h5>
@@ -324,21 +313,20 @@
 
 
 
-<!-- Sidebar Menu -->
-<!-- <div class="sidebar" id="sidebar">
-    <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
-        <i class="fas fa-plus"></i> Create New Order
-    </button>
-    <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
-        <i class="fas fa-box"></i> Add Item to Stock
-    </button>
-    <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
-        <i class="fas fa-money-bill"></i> Add Expense
-    </button>
-    <a href="{% url 'summary' %}" class="btn btn-secondary w-100">
-        <i class="fas fa-chart-bar"></i> View Summary
-    </a>
-</div> -->
+<!-- Initialize Datepickers -->
+<!-- <script>
+    $(document).ready(function() {
+        $("#start-date, #end-date").datepicker({
+            dateFormat: "yy-mm-dd",  // Format required by Django
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script> -->
+
+
+
+
 
 <script>
     function toggleSidebar() {
@@ -364,30 +352,5 @@ function toggleSidebar() {
 
 </script>
 
-<!-- <div class="sidebar">
-    <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
-        <i class="fas fa-plus"></i> Create New Order
-    </button>
-    <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
-        <i class="fas fa-box"></i> Add Item to Stock
-    </button>
-    <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
-        <i class="fas fa-money-bill"></i> Add Expense
-    </button>
-    <a href="{% url 'summary' %}" class="btn btn-secondary w-100">
-        <i class="fas fa-chart-bar"></i> View Summary
-    </a>
-</div> -->
 
-
-<!-- <button class="btn btn-success" onclick="loadFormIntoModal('{% url 'create_order' %}')">
-    Create New Order
-</button>
-<button class="btn btn-info" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
-    Add Item to Stock
-</button>
-<button class="btn btn-warning" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
-    Add Expense
-</button>
-<a href="{% url 'summary' %}" class="btn btn-secondary">View Summary</a> -->
 {% endblock %}

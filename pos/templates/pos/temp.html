@@ -1,0 +1,59 @@
+<button class="btn btn-success mt-2" onclick="openExportModal()">
+    <i class="fas fa-file-excel"></i> Export to Excel
+</button>
+\
+
+
+<button class="btn btn-success mt-2" onclick="openExportModal()">
+    <i class="fas fa-file-excel"></i> Export to Excel
+</button>
+
+
+
+
+<div id="exportModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeExportModal()">&times;</span>
+        <h3>Filter Data for Export</h3>
+        <form id="export-form" method="GET" action="{% url 'export_excel' %}">
+            <div class="date-picker-container">
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date" name="start_date" class="form-control">
+
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date" name="end_date" class="form-control">
+
+                <br>
+                <label><input type="radio" name="page" value="home" checked> Home Page</label>
+                <label><input type="radio" name="page" value="summary"> Summary Page</label>
+
+                <button type="submit" class="btn btn-primary mt-2">
+                    <i class="fas fa-download"></i> Download Excel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+function loadFormIntoModal(url) {
+    $.get(url, function(data) {
+        $('#modal-container').html(`
+            <div class="modal fade" id="dynamicModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Form</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            ${data}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+        $('#dynamicModal').modal('show');
+    });
+}
