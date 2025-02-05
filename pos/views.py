@@ -52,21 +52,66 @@ def create_order(request):
 
 def add_item_to_order(request, order_id):
     order = get_object_or_404(Order, id=order_id)
+    # item = Item.objects.get(id=)
     if request.method == 'POST':
         form = OrderItemForm(request.POST)
         if form.is_valid():
             order_item = form.save(commit=False)
             order_item.order = order
-            order_item.save()
+
+            # Get the item from the form
+            item = order_item.item
+
+            # Check if the item is in stock
+            if item.stock_quantity > 0:
+                # Save the order item
+                order_item.save()
+
+                # Reduce the item's stock quantity by 1
+                item.stock_quantity -= order_item.quantity
+                item.save()
+
+            # order_item.save()
             return redirect('home')
     else:
         form = OrderItemForm()
     return render(request, 'pos/add_item_to_order.html', {'form': form, 'order': order})
 
-def remove_item_from_order(request, item_id):
-    item = get_object_or_404(OrderItem, id=item_id)
-    item.delete()
+# def remove_item_from_order(request, item_id):
+#     item = get_object_or_404(OrderItem, id=item_id)
+#     item.delete()
+#     return redirect('home')
+
+from django.shortcuts import get_object_or_404, redirect
+from .models import Order, OrderItem
+# THis is in the order Card
+def increment_item_quantity(request, order_id, item_id):
+    order = get_object_or_404(Order, id=order_id)
+    item = get_object_or_404(OrderItem, id=item_id, order=order)
+
+    # Increment the quantity and save the changes
+    item.quantity += 1
+    item.total_price = item.item.unit_price * item.quantity
+    item.save()
+
+    # Redirect to the same order page
     return redirect('home')
+
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib import messages
+from .models import Order, OrderItem
+
+def remove_item_from_order(request, order_id, item_id):
+    order = get_object_or_404(Order, id=order_id)
+    item = get_object_or_404(OrderItem, id=item_id, order=order)
+    
+    # Remove item from order
+    item.delete()
+
+    messages.success(request, 'Item removed successfully.')
+    return redirect('home', order_id=order.id)  # Adjust URL as needed
+
 
 def add_item_to_stock(request):
     if request.method == 'POST':
@@ -77,6 +122,119 @@ def add_item_to_stock(request):
     else:
         form = ItemForm()
     return render(request, 'pos/add_item_to_stock.html', {'form': form})
+
+from django.http import JsonResponse
+def item_autocomplete(request):
+    if 'term' in request.GET:
+        qs = Item.objects.filter(name__icontains=request.GET.get('term'))
+        names = list(qs.values_list('name', flat=True))
+        return JsonResponse(names, safe=False)
+# def item_autocomplete(request):
+#     if 'term' in request.GET:
+#         qs = Item.objects.filter(name__icontains=request.GET.get('term'))
+#         names = list(qs.values_list('name', flat=True))
+#         return JsonResponse(names, safe=False)
+
+
+
+# TRY VERSION 2
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import JsonResponse
+from .models import Item
+
+def items_in_stock(request):
+    """Display all items in stock with their stock quantity."""
+    items = Item.objects.all()
+    return render(request, 'pos/items_in_stock.html', {'items': items})
+
+def increment_stock(request, item_id):
+    """Increment stock quantity for a given item."""
+    item = get_object_or_404(Item, id=item_id)
+    item.stock_quantity += 1
+    item.save()
+    return JsonResponse({'success': True, 'new_quantity': item.stock_quantity})
+
+
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from .models import Item
+
+def items_in_stock(request):
+    items = Item.objects.all()
+    return render(request, 'pos/items_in_stock.html', {'items': items})
+
+from django.contrib import messages
+def update_stock_quantity(request):
+    if request.method == "POST":
+        item_id = request.POST.get("item_id")
+        additional_quantity = request.POST.get("additional_quantity")
+
+        try:
+            item = get_object_or_404(Item, id=item_id)
+            additional_quantity = int(additional_quantity)
+
+            if additional_quantity > 0:
+                item.stock_quantity += additional_quantity
+                item.save()
+                messages.success(request, f"Stock for {item.name} updated successfully by {additional_quantity} units.")
+                return redirect("items_in_stock")  # Redirect back to the items list
+
+        except ValueError:
+            messages.error(request, "Please enter a valid quantity.")
+        
+    return redirect("items_in_stock")  # Redirect back in case of failure
+    # if request.method == "POST":
+    #     item_id = request.POST.get("item_id")
+    #     additional_quantity = request.POST.get("additional_quantity")
+
+    #     try:
+    #         item = get_object_or_404(Item, id=item_id)
+    #         additional_quantity = int(additional_quantity)
+
+    #         if additional_quantity > 0:
+    #             item.stock_quantity += additional_quantity
+    #             item.save()
+    #             return redirect("items_in_stock")  # Redirect back to the items list
+
+    #     except ValueError:
+    #         return JsonResponse({"success": False, "error": "Invalid quantity."})
+
+    # return JsonResponse({"success": False, "error": "Invalid request."})
+    # if request.method == "POST":
+    #     item_id = request.POST.get("item_id")
+    #     additional_quantity = request.POST.get("additional_quantity")
+
+    #     try:
+    #         item = Item.objects.get(id=item_id)
+    #         additional_quantity = int(additional_quantity)
+
+    #         if additional_quantity > 0:
+    #             item.stock_quantity += additional_quantity
+    #             item.save()
+    #             return JsonResponse({"success": True, "new_quantity": item.stock_quantity})
+
+    #     except (Item.DoesNotExist, ValueError, TypeError):
+    #         return JsonResponse({"success": False, "error": "Invalid request."})
+
+    # return JsonResponse({"success": False, "error": "Invalid method."})
+
+
+
+    # if request.method == "POST":
+    #     item_id = request.POST.get('item_id')
+    #     additional_quantity = int(request.POST.get('additional_quantity', 0))
+
+    #     if item_id and additional_quantity > 0:
+    #         item = Item.objects.get(id=item_id)
+    #         item.stock_quantity += additional_quantity
+    #         item.save()
+    #         return JsonResponse({"success": True, "new_quantity": item.stock_quantity})
+
+    # return JsonResponse({"success": False, "error": "Invalid request"})
+
+# CLOSING TRY VERSION 2
+
 
 def add_expense(request):
     if request.method == 'POST':
@@ -133,7 +291,8 @@ def summary(request):
         'stock_values': stock_values,
         'expense_labels': expense_labels,
         'expense_values': expense_values,
-        'orders': orders  # Pass filtered orders
+        'orders': orders,  # Pass filtered orders
+        'expenses': expenses
     })
 
 
@@ -176,23 +335,24 @@ def export_excel(request):
 
     for item in items:
         opening = item.stock_quantity  # Initial stock
-        added = sum(oi.quantity for oi in order_items if oi.item == item)  # Stock added from orders
-        stock_total = opening + added
+        # added = sum(oi.quantity for oi in order_items if oi.item == item)  # Stock added from orders
+        # stock_total = opening + added
         sells = sum(oi.quantity for oi in order_items if oi.item == item)  # Sold items
-        closing = stock_total - sells
+        closing = opening - sells
         unit_price = item.unit_price
         cash_sells = sells * unit_price
 
         data.append([
-            item.name, opening, added, stock_total, sells, closing, unit_price, cash_sells
+            item.name, opening, sells, closing, unit_price, cash_sells
         ])
 
     # Create DataFrame
-    df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Stock Total", "Sells", "Closing", "Unit Price", "Cash Sells"])
+    # df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Stock Total", "Sells", "Closing", "Unit Price", "Cash Sells"])
+    df = pd.DataFrame(data, columns=["Item Name", "Opening", "Sells", "Closing", "Unit Price", "Cash Sells"])
 
     # Add Total Row
     total_cash_sales = df["Cash Sells"].sum()
-    df.loc["Total"] = ["", "", "", "", "", "", "Total Sales", total_cash_sales]
+    df.loc["Total"] = ["", "", "", "", "Total Sales", total_cash_sales]
 
     file_name = f"filtered_data_{start_date}_{end_date}.xlsx"
     # Convert to Excel

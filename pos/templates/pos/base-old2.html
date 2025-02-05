@@ -1,0 +1,452 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>  -->
+
+    <!-- BEGIN -->
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+    
+    <!-- Font Awesome -->
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> -->
+
+    <!-- jQuery (Required for Daterangepicker) -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
+    <!-- Moment.js (Required for Date Ranges) -->
+    <!-- <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
+    
+    <!-- Daterangepicker.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"> -->
+
+    <!-- END -->
+
+       <!-- Link to local Bootstrap CSS -->
+       <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+       <!-- Font Awesome (Still from CDN) -->
+       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   
+       <!-- jQuery (Required for some Bootstrap features) -->
+       <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+   
+       <!-- Moment.js (For date pickers) -->
+       <script src="{% static 'js/moment.min.js' %}"></script>
+   
+       <!-- Daterangepicker -->
+       <script src="{% static 'js/daterangepicker.min.js' %}"></script>
+       <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+   
+
+    <style>
+        .modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
+        .modal-content { background-color: white; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 50%; }
+        .close { color: red; float: right; font-size: 28px; cursor: pointer; }
+        .sidebar-toggle { position: fixed; top: 10px; left: 10px; z-index: 1000; background: none; border: none; cursor: pointer; font-size: 24px; }
+        .sidebar { width: 250px; position: fixed; left: -250px; top: 0; height: 100%; background: #343a40; padding: 20px; transition: 0.3s; }
+        .sidebar.show { left: 0; }
+
+
+
+          
+ .card {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px; /* Add space between cards */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.list-group-item {
+    padding: 10px 15px;
+    border: 1px solid #e2e6ea;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 0;
+}
+
+.list-group-item .text-muted {
+    font-size: 0.9rem;
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+/* Optional: Adding padding to the container to separate all cards */
+.container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Adjust margin between cards for a more spaced out layout */
+.row {
+    margin-bottom: 20px;
+}
+
+.text-muted{
+    margin-left: 20px;
+}
+
+
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 80px; /* Adjust according to navbar height */
+    left: 0;
+    background-color: #f8f9fa;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Sidebar hidden on small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+}
+
+/* Show sidebar when active */
+.sidebar.active {
+    transform: translateX(0);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Sidebar buttons */
+.sidebar .btn {
+    font-size: 1.1rem;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar .btn i {
+    font-size: 1.2rem;
+}
+
+/* Date Picker Styles */
+.date-picker-container {
+    margin-top: 20px;
+}
+
+.date-label {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.date-picker {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 1rem;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebar" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <button class="btn btn-success w-100 mb-2" onclick="loadFormIntoModal('{% url 'create_order' %}')">
+            <i class="fas fa-plus"></i> Create New Order
+        </button>
+        <button class="btn btn-info w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+            <i class="fas fa-box"></i> Add Item to Stock
+        </button>
+        <button class="btn btn-warning w-100 mb-2" onclick="loadFormIntoModal('{% url 'add_expense' %}')">
+            <i class="fas fa-money-bill"></i> Add Expense
+        </button>
+        <a href="{% url 'summary' %}" class="btn btn-secondary w-100 mb-3">
+            <i class="fas fa-chart-bar"></i> View Summary
+        </a>
+
+        <!-- Filter Form -->
+        <form id="filter-form" method="GET" action="{% url 'home_filter' %}">
+            <div class="date-picker-container">
+                <label for="start-date">
+                    <i class="fas fa-calendar-alt"></i> Start Date:
+                </label>
+                <input type="date" id="start-date" name="start_date" class="form-control">
+                
+                <label for="end-date">
+                    <i class="fas fa-calendar-alt"></i> End Date:
+                </label>
+                <input type="date" id="end-date" name="end_date" class="form-control">
+
+                <br>
+                <label><input type="radio" name="page" value="home" checked> Home Page</label>
+                <label><input type="radio" name="page" value="summary"> Summary Page</label>
+
+                <button type="submit" class="btn btn-primary mt-2 apply-filter">
+                    <i class="fas fa-filter"></i> Apply Filter
+                </button>
+            </div>
+        </form>
+
+        <!-- Export Button -->
+        <button class="btn btn-success mt-2" onclick="openExportModal()">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </button>
+    </div>
+
+    <!-- Export Modal -->
+    <div id="exportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeExportModal()">&times;</span>
+            <h3>Filter Data for Export</h3>
+            <form id="export-form" method="GET" action="{% url 'export_excel' %}">
+                <label for="export-start-date">Start Date:</label>
+                <input type="date" id="export-start-date" name="start_date" class="form-control">
+
+                <label for="export-end-date">End Date:</label>
+                <input type="date" id="export-end-date" name="end_date" class="form-control">
+
+                <br>
+                <label><input type="radio" name="page" value="home" checked> Home Page</label>
+                <label><input type="radio" name="page" value="summary"> Summary Page</label>
+
+                <button type="submit" class="btn btn-primary mt-2">
+                    <i class="fas fa-download"></i> Download Excel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
+
+    <!-- Bootstrap and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function toggleSidebar() {
+       
+            document.getElementById("sidebar").classList.toggle("show");
+        }
+
+        function openExportModal() {
+            document.getElementById("exportModal").style.display = "block";
+        }
+
+        function closeExportModal() {
+            document.getElementById("exportModal").style.display = "none";
+        }
+
+        function loadFormIntoModal(url) {
+            $.get(url, function(data) {
+                $('#modal-container').html(data);
+                $('#modal').modal('show');
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".apply-filter").addEventListener("click", function(event) {
+                event.preventDefault();
+                const startDate = document.getElementById("start-date").value;
+                const endDate = document.getElementById("end-date").value;
+                
+                if (startDate && endDate) {
+                    alert(`Filtering from ${startDate} to ${endDate}`);
+                    document.getElementById("filter-form").submit();
+                } else {
+                    alert("Please select both start and end dates.");
+                }
+            });
+
+            document.querySelectorAll("input[name='page']").forEach(radio => {
+                radio.addEventListener("change", function() {
+                    document.getElementById("filter-form").action = this.value === "home" ? "{% url 'home' %}" : "{% url 'summary' %}";
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

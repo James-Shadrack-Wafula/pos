@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+e2f2my39yc_q9c^k32js4^o03hv*f98+qk#$6vc+0$zu0j*25
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pos',
-    'widget_tweaks'
+    'widget_tweaks',
+    
+    # 'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -117,7 +119,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+
+import os
+
+# Static files (CSS, JavaScript, images)
+STATIC_URL = '/static/'
+
+# Directory for static files in development (should be inside your project folder)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Add the static folder in the root of your project
+]
+
+# Static files storage (this is for production, where static files will be served)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory where collectstatic will gather static files
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

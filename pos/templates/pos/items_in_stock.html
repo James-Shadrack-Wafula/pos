@@ -1,0 +1,165 @@
+{% extends 'pos/base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+
+
+<!-- Bootstrap & Font Awesome -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $(".increment-stock").click(function() {
+            var itemId = $(this).data("item-id");
+            var quantityCell = $("#quantity-" + itemId);
+
+            $.ajax({
+                url: `/increment-stock/${itemId}/`,
+                method: "GET",
+                success: function(response) {
+                    if (response.success) {
+                        quantityCell.text(response.new_quantity);
+                    } else {
+                        alert("Error updating stock.");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
+
+<div class="container mt-4">
+
+    {% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<button class="btn btn-info w-20 mb-2 p-3" onclick="loadFormIntoModal('{% url 'add_item_to_stock' %}')">
+    <i class="fas fa-box"></i> Add New Item to Stock
+ </button>
+    <h2 class="text-center">Items in Stock</h2>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Item Name</th>
+                <th>Unit Price</th>
+                <th>Stock Quantity</th>
+                <th>Increase Stock</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>KES {{ item.unit_price }}</td>
+                <td id="stock-{{ item.id }}">{{ item.stock_quantity }}</td>
+                <form method="POST" action="{% url 'update_stock' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="item_id" value="{{ item.id }}">
+                    
+                    <td>
+                        <input type="number" name="additional_quantity" class="form-control" min="1" placeholder="Enter quantity" required>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fas fa-plus "></i> Update Stock
+                        </button>
+                    </td>
+                </form>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+function updateStock(itemId) {
+    let quantityInput = document.getElementById(`quantity-${itemId}`);
+    let quantity = parseInt(quantityInput.value, 10);
+
+    console.log("Item ID:", itemId);
+    console.log("Entered Quantity:", quantity);
+
+    if (!isNaN(quantity) && quantity > 0) {
+        fetch("{% url 'update_stock' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: `item_id=${itemId}&additional_quantity=${quantity}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Server Response:", data);
+            if (data.success) {
+                document.getElementById(`stock-${itemId}`).textContent = data.new_quantity;
+                quantityInput.value = ""; // Clear input after updating
+            } else {
+                alert("Failed to update stock.");
+            }
+        })
+        .catch(error => {
+            console.error("Error updating stock:", error);
+            alert("An error occurred. Please try again.");
+        });
+    } else {
+        alert("Please enter a valid quantity.");
+    }
+}
+
+    // function updateStock(itemId) {
+    //     // let quantity = document.getElementById(`quantity-${itemId}`).value;
+    //     let quantity = parseInt(document.getElementById(`quantity-${itemId}`).value, 10);
+        
+    //     // if (!isNaN(quantity) && quantity > 0) {
+    //         fetch("{% url 'update_stock' %}", {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/x-www-form-urlencoded",
+    //                 "X-CSRFToken": "{{ csrf_token }}"
+    //             },
+    //             body: `item_id=${itemId}&additional_quantity=${quantity}`
+    //         })
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.success) {
+    //                 document.getElementById(`stock-${itemId}`).textContent = data.new_quantity;
+    //                 document.getElementById(`quantity-${itemId}`).value = "";
+    //             } else {
+    //                 alert("Failed to update stock.");
+    //             }
+    //         });
+    //     // } else {
+    //         alert("Please enter a valid quantity.");
+    //     // }
+    // }
+</script>
+
+
+
+{% endblock %}

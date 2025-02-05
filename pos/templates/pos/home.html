@@ -3,6 +3,8 @@
 
 {% block content %}
 
+
+
 <!-- jQuery (Required for Daterangepicker) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -20,23 +22,67 @@
 <style>
  .card {
     background-color: #fff;
+    width: 400px !important;
     border: none;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin-bottom: 20px; /* Add space between cards */
+    margin-bottom: 20px; 
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.card-body {
+/* .card-body {
     padding: 20px;
 }
 
 .card-title {
     font-size: 1.5rem;
     margin-bottom: 15px;
+} */
+
+
+/* General styling for small buttons with icons */
+.btn-small-icon {
+    padding: 0.25rem 0.5rem; /* Adjust button padding */
+    font-size: 0.75rem; /* Reduce button text size */
 }
+
+.small-icon {
+    font-size: 12px; /* Set icon size to 12x12 */
+}
+
+/* Styling for the remove and increment buttons to make them consistent */
+.c-form {
+    margin: 0;
+}
+
+/* Reduce button size for 'Add Item' button */
+.btn-sm {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem; /* Adjust the padding */
+}
+
+/* Ensure that the card content fits well inside */
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Responsive styling */
+@media (max-width: 767px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn-sm {
+        font-size: 0.75rem;
+    }
+
+    .small-icon {
+        font-size: 10px;
+    }
+}
+
 
 .list-group-item {
     padding: 10px 15px;
@@ -107,18 +153,20 @@
 }
 
 
-.sidebar {
+
+
+/* .sidebar {
     width: 250px;
     position: fixed;
-    top: 80px; /* Adjust according to navbar height */
+    top: 80px; Adjust according to navbar height
     left: 0;
     background-color: #f8f9fa;
     padding: 20px;
     height: 100vh;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
-.sidebar .btn {
+/* .sidebar .btn {
     font-size: 1.1rem;
     padding: 12px;
     border-radius: 8px;
@@ -130,29 +178,29 @@
 
 .sidebar .btn i {
     font-size: 1.2rem;
-}
+} */
 
 
 /* Sidebar styles */
-.sidebar {
+/* .sidebar {
     width: 250px;
     position: fixed;
-    top: 80px; /* Adjust according to navbar height */
+    top: 80px; Adjust according to navbar height
     left: 0;
     background-color: #f8f9fa;
     padding: 20px;
     height: 100vh;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-}
+} */
 
 /* Sidebar hidden on small screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
         position: fixed;
     }
-}
+} */
 
 /* Show sidebar when active */
 .sidebar.active {
@@ -160,7 +208,7 @@
 }
 
 /* Sidebar Toggle Button */
-.sidebar-toggle {
+/* .sidebar-toggle {
     position: fixed;
     top: 20px;
     left: 20px;
@@ -173,7 +221,7 @@
     border-radius: 5px;
     z-index: 1000;
     transition: background-color 0.3s ease;
-}
+} */
 
 .sidebar-toggle:hover {
     background-color: #0056b3;
@@ -195,25 +243,25 @@
 }
 
 /* Sidebar styles */
-.sidebar {
+/* .sidebar {
     width: 250px;
     position: fixed;
-    top: 80px; /* Adjust according to navbar height */
+    top: 80px; Adjust according to navbar height
     left: 0;
     background-color: #f8f9fa;
     padding: 20px;
     height: 100vh;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-}
+} */
 
 /* Sidebar hidden on small screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
         position: fixed;
     }
-}
+} */
 
 /* Show sidebar when active */
 .sidebar.active {
@@ -221,7 +269,7 @@
 }
 
 /* Sidebar Toggle Button */
-.sidebar-toggle {
+/* .sidebar-toggle {
     position: fixed;
     top: 20px;
     left: 20px;
@@ -234,14 +282,14 @@
     border-radius: 5px;
     z-index: 1000;
     transition: background-color 0.3s ease;
-}
+} */
 
-.sidebar-toggle:hover {
+/* .sidebar-toggle:hover {
     background-color: #0056b3;
-}
+} */
 
 /* Sidebar buttons */
-.sidebar .btn {
+/* .sidebar .btn {
     font-size: 1.1rem;
     padding: 12px;
     border-radius: 8px;
@@ -249,11 +297,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-}
+} */
 
-.sidebar .btn i {
+/* .sidebar .btn i {
     font-size: 1.2rem;
-}
+} */
 
 /* Date Picker Styles */
 .date-picker-container {
@@ -277,13 +325,81 @@
     font-size: 1rem;
 }
 
+.btn-small-icon {
+    padding: 0.25rem 0.5rem; /* Adjust button padding */
+    font-size: 0.75rem; /* Reduce button text size */
+}
+
+.icon-small {
+    font-size: 12px; /* Set icon size to 12x12 */
+}
+/* .c-form{
+    width: 20px;
+}
+.c-btn{
+    width: 10px;
+} */
 
 </style>
 <h1>Active Orders</h1>
-<div class="row">
+<div class="row c-row">
     {% for order in orders %}
+
+    <div class="card mb-4 shadow-lg rounded-lg" style="min-height: 400px;"> 
+        <!-- Card Body -->
+        <div class="card-body">
+            <!-- Table Title -->
+            <h5 class="card-title text-primary font-weight-bold">Table {{ order.table_number }}</h5>
+            
+            <!-- Order Items List -->
+            <ul class="list-group mb-3">
+                {% for item in order.order_items.all %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="d-flex flex-column">
+                                <!-- Item Name and Quantity -->
+                                <span>{{ item.quantity }} x {{ item.item.name }}</span>
+                                <!-- Item Price -->
+                                <span class="text-muted">sh.{{ item.total_price }}</span>
+                            </div>
     
-    <div class="card mb-4 shadow-lg rounded-lg">
+                            <div class="d-flex align-items-center">
+                                <!-- Increment Button -->
+                                <form action="{% url 'increment_item_quantity' order.id item.id %}" class="c-form" method="POST" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-success btn-small-icon">
+                                        <i class="fas fa-plus small-icon"></i>
+                                    </button>
+                                </form>
+                                
+                                <!-- Remove Item Button -->
+                                <form action="{% url 'remove_item_from_order' order.id item.id %}" class="c-form" method="POST" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-danger btn-small-icon ml-2">
+                                        <i class="fas fa-trash-alt small-icon"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+    
+            <!-- Total Price Section -->
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="font-weight-bold mb-0">Total:</p>
+                <p class="font-weight-bold text-success mb-0">sh.{{ order.total_price }}</p>
+            </div>
+            
+            <!-- Add Item Button -->
+            <button class="btn btn-primary w-100 mt-3 btn-sm" onclick="loadFormIntoModal('{% url 'add_item_to_order' order.id %}')">
+                Add Item
+            </button>
+        </div>
+    </div>
+    
+    
+    <!-- <div class="card mb-4 shadow-lg rounded-lg">
         <div class="card-body">
             <h5 class="card-title text-primary font-weight-bold">Table {{ order.table_number }}</h5>
             
@@ -305,7 +421,7 @@
                 Add Item
             </button>
         </div>
-    </div>
+    </div> -->
     
     {% endfor %}
 </div>
