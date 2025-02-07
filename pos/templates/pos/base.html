@@ -18,6 +18,9 @@
     <script src="{% static 'js/moment.min.js' %}"></script>
     <script src="{% static 'js/daterangepicker.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
 /* Ensure the modal has a higher z-index than the overlay */
 .modal {
@@ -238,7 +241,7 @@
 .sidebar {
     
     position: fixed;
-    left: -250px;  /* Initially hidden */
+    left: -250px;  
     top: 0;
     padding-top: 5%;
     width: 250px;
@@ -257,9 +260,9 @@
 
 /* Button styles for toggle */
 .sidebar-toggle {
-    position: absolute;
+    /* position: absolute;
     top: 20px;
-    left: 20px;
+    left: 20px; */
     z-index: 1100;  /* Ensures the button is on top */
     cursor: pointer;
 }
@@ -288,16 +291,94 @@
 }
 
 
+.navbar {
+    z-index: 10;
+    padding: 20px;
+    height: 80px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    width: 100%;
+
+}
+
+.navbar-brand img {
+    border-radius: 50%;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    padding: 8px 15px;
+}
+
+.dropdown-menu {
+    min-width: 180px;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 14px;
+    padding: 10px;
+}
+
+.c-navcontent{
+    float: right !important;
+}
+
+
 
     </style>
 </head>
+<nav class="navbar  navbar-dark bg-primary shadow-lg" style="position: fixed;">
+    <div class="container-fluid">
+        <!-- Brand Logo -->
+        <a class="navbar-brand fw-bold" href="{% url 'home' %}" style="font-size: 1.5rem; letter-spacing: 1px;">
+            <i class="fas fa-utensils"></i> MyRestaurant
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse c-navcontent" id="navbarNav">
+            <ul class="navbar-nav ms-auto">  <!-- This class moves the links to the right -->
+                {% if user.is_authenticated %}
+                <!-- Profile Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" width="40" height="40" alt="User">
+                        <span class="fw-bold text-white">{{ user.username }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </li>
+                {% else %}
+                <!-- Login & Register Buttons -->
+                <li class="nav-item">
+                    <a class="btn btn-light text-primary fw-bold me-2" href="{% url 'login' %}">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-warning fw-bold" href="{% url 'register' %}">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <body>
     <div class="container-fluid c-container">
         {% block content %}
         {% endblock %}
     </div>
 
-    <button class="sidebar-toggle" id="sidebarToggle" style="position: fixed;">
+    <button class="sidebar-toggle" id="sidebarToggle" >
         <i class="fas fa-bars"></i>
     </button>
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User  # Import Django’s built-in user model
 
 # Create your models here.
 from django.db import models
@@ -12,6 +13,8 @@ class Item(models.Model):
         return self.name
 
 class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)  # Link to User model
+
     table_number = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)

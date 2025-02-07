@@ -10,12 +10,65 @@ from django.shortcuts import render
 from django.utils.dateparse import parse_date
 from .models import Order
 
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from .forms import RegisterForm
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])  # Hash password
+            user.save()
+            login(request, user)
+            return redirect('home')  # Redirect to homepage or dashboard
+    else:
+        form = RegisterForm()
+    return render(request, 'pos/register.html', {'form': form})
+
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def custom_logout(request):
+    logout(request)
+    return redirect('login')  # Redirect to login page after logout
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+
+def custom_login(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Login successful!")
+            return redirect("home")  # Redirect to your homepage or dashboard
+        else:
+            messages.error(request, "Invalid username or password!")
+
+    return render(request, "login.html")  # Load the login template
+
+
+
+
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
+
+@login_required
 def home(request):
     orders = Order.objects.filter(is_paid=False)
 
     return render(request, 'pos/home.html', {'orders': orders})
 
-
+@login_required
 def home_filter(request):
     orders = Order.objects.filter(is_paid=False)
     start_date = request.GET.get('start_date')
@@ -31,6 +84,7 @@ def home_filter(request):
 
 from django.shortcuts import render
 
+@login_required
 def create_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
@@ -50,6 +104,7 @@ def create_order(request):
 #         form = OrderForm()
 #     return render(request, 'pos/create_order.html', {'form': form})
 
+@login_required
 def add_item_to_order(request, order_id):
     order = get_object_or_404(Order, id=order_id)
     # item = Item.objects.get(id=)
@@ -85,6 +140,8 @@ def add_item_to_order(request, order_id):
 from django.shortcuts import get_object_or_404, redirect
 from .models import Order, OrderItem
 # THis is in the order Card
+
+@login_required
 def increment_item_quantity(request, order_id, item_id):
     order = get_object_or_404(Order, id=order_id)
     item = get_object_or_404(OrderItem, id=item_id, order=order)
@@ -102,6 +159,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.contrib import messages
 from .models import Order, OrderItem
 
+@login_required
 def remove_item_from_order(request, order_id, item_id):
     order = get_object_or_404(Order, id=order_id)
     item = get_object_or_404(OrderItem, id=item_id, order=order)
@@ -112,7 +170,7 @@ def remove_item_from_order(request, order_id, item_id):
     messages.success(request, 'Item removed successfully.')
     return redirect('home', order_id=order.id)  # Adjust URL as needed
 
-
+@login_required
 def add_item_to_stock(request):
     if request.method == 'POST':
         form = ItemForm(request.POST)
