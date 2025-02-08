@@ -84,16 +84,30 @@ def home_filter(request):
 
 from django.shortcuts import render
 
+
 @login_required
 def create_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            form.save()
+            order = form.save(commit=False)  # Do not save yet
+            order.user = request.user  # Assign logged-in user
+            order.save()  # Now save the order
             return redirect('home')
     else:
         form = OrderForm()
+    
     return render(request, 'pos/create_order.html', {'form': form})
+
+# def create_order(request):
+#     if request.method == 'POST':
+#         form = OrderForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     else:
+#         form = OrderForm()
+#     return render(request, 'pos/create_order.html', {'form': form})
 # def create_order(request):
 #     if request.method == 'POST':
 #         form = OrderForm(request.POST)
@@ -319,6 +333,26 @@ from .models import Item, Expense, Order
 from django.shortcuts import render
 from django.utils.dateparse import parse_date
 from .models import Order, Item, Expense
+
+
+from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .models import Order
+
+@login_required
+def toggle_payment_status(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    
+    # Toggle the `is_paid` field
+    order.is_paid = not order.is_paid
+    order.save()
+    
+    status = "Paid" if order.is_paid else "Unpaid"
+    messages.success(request, f"Order for Table {order.table_number} marked as {status}.")
+    
+    return redirect(request.META.get("HTTP_REFERER", "orders_page"))  # Redirect back to orders page
+
 
 def summary(request):
     items = Item.objects.all()

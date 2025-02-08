@@ -28,4 +28,6 @@ urlpatterns = [
     path('logout/', views.custom_logout, name='logout'),
     path('register/', views.register, name='register'),
 
+    path('order/<int:order_id>/toggle-payment/', views.toggle_payment_status, name='toggle_payment_status'),
+
 ]

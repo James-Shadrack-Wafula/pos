@@ -356,7 +356,10 @@
         <!-- Card Body -->
         <div class="card-body">
             <!-- Table Title -->
-            <h5 class="card-title text-primary font-weight-bold">Table {{ order.table_number }}</h5>
+            <h5 class="card-title text-primary font-weight-bold d-flex justify-content-between align-items-center">
+                Table {{ order.table_number }}
+                <span class="text-muted" style="font-size: 0.7rem; text-align: right;">@{{ order.user.username }}</span> <!-- Show the user -->
+            </h5>
             
             <!-- Order Items List -->
             <ul class="list-group mb-3">
@@ -372,7 +375,7 @@
     
                             <div class="d-flex align-items-center">
                                 <!-- Increment Button -->
-                                <form action="{% url 'increment_item_quantity' order.id item.id %}" class="c-form" method="POST" style="display:inline;">
+                                <form action="{% url 'increment_item_quantity' order.id item.id %}" method="POST" style="display:inline;">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-sm btn-success btn-small-icon">
                                         <i class="fas fa-plus small-icon"></i>
@@ -380,7 +383,7 @@
                                 </form>
                                 
                                 <!-- Remove Item Button -->
-                                <form action="{% url 'remove_item_from_order' order.id item.id %}" class="c-form" method="POST" style="display:inline;">
+                                <form action="{% url 'remove_item_from_order' order.id item.id %}" method="POST" style="display:inline;">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-sm btn-danger btn-small-icon ml-2">
                                         <i class="fas fa-trash-alt small-icon"></i>
@@ -397,6 +400,17 @@
                 <p class="font-weight-bold mb-0">Total:</p>
                 <p class="font-weight-bold text-success mb-0">sh.{{ order.total_price }}</p>
             </div>
+    
+            <!-- Payment Checkbox -->
+            <div class="form-check mt-2">
+                <form action="{% url 'toggle_payment_status' order.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="checkbox" class="form-check-input" id="paidCheckbox{{ order.id }}"
+                        {% if order.is_paid %}checked{% endif %}
+                        onchange="this.form.submit()">
+                    <label class="form-check-label" for="paidCheckbox{{ order.id }}">Paid</label>
+                </form>
+            </div>
             
             <!-- Add Item Button -->
             <button class="btn btn-primary w-100 mt-3 btn-sm" onclick="loadFormIntoModal('{% url 'add_item_to_order' order.id %}')">
@@ -404,6 +418,7 @@
             </button>
         </div>
     </div>
+    
     
     
     <!-- <div class="card mb-4 shadow-lg rounded-lg">
