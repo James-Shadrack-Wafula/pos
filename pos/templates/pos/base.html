@@ -249,7 +249,7 @@
     background-color: #333;
     color: white;
     transition: left 0.3s ease;  /* Slide animation */
-    z-index: 1000;
+    z-index: 3000;
 }
 
 /* When sidebar is open, move it to the left */
@@ -263,7 +263,7 @@
     /* position: absolute;
     top: 20px;
     left: 20px; */
-    z-index: 1100;  /* Ensures the button is on top */
+    z-index: 3100;  /* Ensures the button is on top */
     cursor: pointer;
 }
 
@@ -285,23 +285,29 @@
 }
 
 .c-container{
-    padding-left: 20%;
-    /* padding-top: 20%; */
+    padding-left: 25%;
+    padding-top: 10% !important;
     /* padding: 100px; */
 }
 
 
 .navbar {
-    z-index: 10;
+    /* z-index: 10; */
     padding: 20px;
     height: 80px;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: linear-gradient(to right,  #2575fc, #6a11cb);
     width: 100%;
+    /* margin-left: 15%; */
+    padding-left: 15%;
 
 }
 
 .navbar-brand img {
     border-radius: 50%;
+}
+.navbar-brand {
+    margin-left: 100px;
+    /* padd */
 }
 
 .navbar-nav .nav-link {
@@ -321,42 +327,57 @@
 .c-navcontent{
     float: right !important;
 }
+.c-authsection{
+    width:10%;
+}
+
+/* Always show sidebar on large screens */
+@media (min-width: 992px) {
+    #sidebar {
+        left: 0; /* Always visible */
+    }
+    #sidebarToggle {
+        display: none;
+    }
+}
 
 
 
     </style>
 </head>
-<nav class="navbar  navbar-dark bg-primary shadow-lg" style="position: fixed;">
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-primary shadow-lg fixed-top .navbar-c ">
     <div class="container-fluid">
         <!-- Brand Logo -->
-        <a class="navbar-brand fw-bold" href="{% url 'home' %}" style="font-size: 1.5rem; letter-spacing: 1px;">
-            <i class="fas fa-utensils"></i> MyRestaurant
+        <a class="navbar-brand fw-bold " href="{% url 'home' %}" style="font-size: 1.6rem; letter-spacing: 1px;">
+            <i class="fas "></i> myPOS
         </a>
 
         <!-- Mobile Toggle Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <!-- <button class="navbar-toggler sidebar-toggle" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navbar Links -->
-        <div class="collapse navbar-collapse c-navcontent" id="navbarNav">
-            <ul class="navbar-nav ms-auto">  <!-- This class moves the links to the right -->
+        </button> -->
+        <!-- <div class="nav-item d-flex justify-content-end">
+            @{{ user.username }}
+        </div> -->
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
                 {% if user.is_authenticated %}
-                <!-- Profile Dropdown -->
+                <!-- User Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
-                        <img src="https://via.placeholder.com/40" class="rounded-circle me-2" width="40" height="40" alt="User">
-                        <span class="fw-bold text-white">{{ user.username }}</span>
+                    <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle"></i> @{{ user.username }}
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end shadow-lg">
-                        <li><a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a></li>
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                     </ul>
                 </li>
                 {% else %}
                 <!-- Login & Register Buttons -->
                 <li class="nav-item">
-                    <a class="btn btn-light text-primary fw-bold me-2" href="{% url 'login' %}">
+                    <a class="btn btn-outline-light fw-bold me-2" href="{% url 'login' %}">
                         <i class="fas fa-sign-in-alt"></i> Login
                     </a>
                 </li>
@@ -457,16 +478,15 @@
 
     <script>
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const sidebarToggleButton = document.getElementById("sidebarToggle");
+    const sidebar = document.getElementById("sidebar");
 
     if (sidebarToggleButton) {
         console.log("Sidebar toggle button found");
 
-        sidebarToggleButton.addEventListener("click", function() {
+        sidebarToggleButton.addEventListener("click", function () {
             console.log("Sidebar toggle button clicked");
-
-            const sidebar = document.getElementById("sidebar");
 
             // Toggle sidebar visibility
             sidebar.classList.toggle("show");
@@ -486,6 +506,69 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Sidebar toggle button not found!");
     }
 });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const sidebarToggleButton = document.getElementById("sidebarToggle");
+//     const sidebar = document.getElementById("sidebar");
+
+//     if (sidebarToggleButton) {
+//         console.log("Sidebar toggle button found");
+
+//         sidebarToggleButton.addEventListener("click", function() {
+//             console.log("Sidebar toggle button clicked");
+
+//             // Check screen size before toggling
+//             if (window.innerWidth < 992) {
+//                 sidebar.classList.toggle("show");
+
+//                 const icon = document.querySelector("#sidebarToggle i");
+//                 if (sidebar.classList.contains("show")) {
+//                     console.log("Sidebar is now open");
+//                     icon.classList.remove("fa-bars");
+//                     icon.classList.add("fa-times");
+//                 } else {
+//                     console.log("Sidebar is now closed");
+//                     icon.classList.remove("fa-times");
+//                     icon.classList.add("fa-bars");
+//                 }
+//             }
+//         });
+//     } else {
+//         console.log("Sidebar toggle button not found!");
+//     }
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const sidebarToggleButton = document.getElementById("sidebarToggle");
+
+//     if (sidebarToggleButton) {
+//         console.log("Sidebar toggle button found");
+
+//         sidebarToggleButton.addEventListener("click", function() {
+//             console.log("Sidebar toggle button clicked");
+
+//             const sidebar = document.getElementById("sidebar");
+
+//             // Toggle sidebar visibility
+//             sidebar.classList.toggle("show");
+
+//             const icon = document.querySelector("#sidebarToggle i");
+//             if (sidebar.classList.contains("show")) {
+//                 console.log("Sidebar is now open");
+//                 icon.classList.remove("fa-bars");
+//                 icon.classList.add("fa-times");
+//             } else {
+//                 console.log("Sidebar is now closed");
+//                 icon.classList.remove("fa-times");
+//                 icon.classList.add("fa-bars");
+//             }
+//         });
+//     } else {
+//         console.log("Sidebar toggle button not found!");
+//     }
+// });
 
 
 // document.addEventListener("DOMContentLoaded", function() {

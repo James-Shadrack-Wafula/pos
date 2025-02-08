@@ -216,13 +216,14 @@ def increment_stock(request, item_id):
 
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from .models import Item
+from .models import Item, Added
 
 def items_in_stock(request):
     items = Item.objects.all()
     return render(request, 'pos/items_in_stock.html', {'items': items})
 
 from django.contrib import messages
+@login_required
 def update_stock_quantity(request):
     if request.method == "POST":
         item_id = request.POST.get("item_id")
@@ -235,6 +236,13 @@ def update_stock_quantity(request):
             if additional_quantity > 0:
                 item.stock_quantity += additional_quantity
                 item.save()
+                # Create an Added object to track stock update
+                Added.objects.create(
+                    user=request.user,  # Capture the logged-in user
+                    item=item,
+                    added_quantity=additional_quantity
+                )
+
                 messages.success(request, f"Stock for {item.name} updated successfully by {additional_quantity} units.")
                 return redirect("items_in_stock")  # Redirect back to the items list
 
@@ -366,59 +374,212 @@ from django.http import HttpResponse
 from django.utils.dateparse import parse_date
 from .models import Item, OrderItem, Order
 
+from django.http import HttpResponse
+import pandas as pd
+from django.utils.dateparse import parse_date
+from django.db.models import Sum
+from .models import Item, Order, OrderItem, Added
+
+
+from django.http import HttpResponse
+import pandas as pd
+from django.utils.dateparse import parse_date
+from django.db.models import Sum
+from .models import Item, OrderItem, Added
+
 def export_excel(request):
     # Get filter parameters
     start_date = request.GET.get('start_date')
     end_date = request.GET.get('end_date')
-    page = request.GET.get('page', 'home')  # Default to home
 
-    # Fetch orders based on page selection
-    orders = Order.objects.all()
-    if page == "home":
-        orders = orders.filter(is_paid=False)
-
-    # Filter orders based on date
     if start_date and end_date:
         start_date = parse_date(start_date)
         end_date = parse_date(end_date)
-        if start_date and end_date:
-            orders = orders.filter(created_at__date__range=[start_date, end_date])
+    else:
+        return HttpResponse("Invalid date range", status=400)
 
-    # Fetch order items linked to filtered orders
-    order_items = OrderItem.objects.filter(order__in=orders)
+    # Fetch all items
+    items = Item.objects.all()
 
     # Prepare Data for Excel
     data = []
-    items = Item.objects.all()  # Fetch all items
 
     for item in items:
-        opening = item.stock_quantity  # Initial stock
-        # added = sum(oi.quantity for oi in order_items if oi.item == item)  # Stock added from orders
-        # stock_total = opening + added
-        sells = sum(oi.quantity for oi in order_items if oi.item == item)  # Sold items
-        closing = opening - sells
+        # Start with the current stock quantity
+        current_stock = item.stock_quantity  
+
+        # **Determine Stock at End Date**
+        # Add back items sold *AFTER* the end date
+        items_sold_after = OrderItem.objects.filter(
+            item=item, order__created_at__date__gt=end_date
+        ).aggregate(Sum('quantity'))['quantity__sum'] or 0
+
+        # Subtract items added *AFTER* the end date
+        items_added_after = Added.objects.filter(
+            item=item, date__gt=end_date
+        ).aggregate(Sum('added_quantity'))['added_quantity__sum'] or 0
+
+        stock_on_end_date = current_stock + items_sold_after - items_added_after
+
+        # **Find Items Added During the Period**
+        added = Added.objects.filter(
+            item=item, date__range=[start_date, end_date]
+        ).aggregate(Sum('added_quantity'))['added_quantity__sum'] or 0
+
+        # **Find Items Sold During the Period**
+        sells = OrderItem.objects.filter(
+            item=item, order__created_at__date__range=[start_date, end_date]
+        ).aggregate(Sum('quantity'))['quantity__sum'] or 0
+
+        # **Calculate Opening Stock**
+        opening = stock_on_end_date - added + sells
+
+        # **Calculate Closing Stock**
+        closing = opening + added - sells
+
+        # **Calculate Cash Sales**
         unit_price = item.unit_price
         cash_sells = sells * unit_price
 
         data.append([
-            item.name, opening, sells, closing, unit_price, cash_sells
+            item.name, opening, added, sells, closing, unit_price, cash_sells
         ])
 
     # Create DataFrame
-    # df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Stock Total", "Sells", "Closing", "Unit Price", "Cash Sells"])
-    df = pd.DataFrame(data, columns=["Item Name", "Opening", "Sells", "Closing", "Unit Price", "Cash Sells"])
+    df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Sells", "Closing", "Unit Price", "Cash Sells"])
 
     # Add Total Row
     total_cash_sales = df["Cash Sells"].sum()
-    df.loc["Total"] = ["", "", "", "", "Total Sales", total_cash_sales]
+    df.loc["Total"] = ["", "", "", "", "", "Total Sales", total_cash_sales]
 
     file_name = f"filtered_data_{start_date}_{end_date}.xlsx"
+
     # Convert to Excel
     response = HttpResponse(content_type='application/vnd.ms-excel')
     response['Content-Disposition'] = f'attachment; filename="{file_name}"'
     df.to_excel(response, index=False)
 
     return response
+
+
+# def export_excel(request):
+#     # Get filter parameters
+#     start_date = request.GET.get('start_date')
+#     end_date = request.GET.get('end_date')
+#     page = request.GET.get('page', 'home')  # Default to home
+
+#     # Fetch orders based on page selection
+#     orders = Order.objects.all()
+#     if page == "home":
+#         orders = orders.filter(is_paid=False)
+
+#     # Filter orders based on date
+#     if start_date and end_date:
+#         start_date = parse_date(start_date)
+#         end_date = parse_date(end_date)
+#         if start_date and end_date:
+#             orders = orders.filter(created_at__date__range=[start_date, end_date])
+
+#     # Fetch order items linked to filtered orders
+#     order_items = OrderItem.objects.filter(order__in=orders)
+
+#     # Prepare Data for Excel
+#     data = []
+#     items = Item.objects.all()  # Fetch all items
+
+#     for item in items:
+#         # **Calculate Opening Stock**
+#         # Stock before the filter period (sum of all added - sum of all sold before the start date)
+#         added_before = Added.objects.filter(item=item, date__lt=start_date).aggregate(Sum('added_quantity'))['added_quantity__sum'] or 0
+#         sold_before = OrderItem.objects.filter(item=item, order__created_at__date__lt=start_date).aggregate(Sum('quantity'))['quantity__sum'] or 0
+#         opening = added_before - sold_before
+
+#         # **Stock Added During the Period**
+#         added = Added.objects.filter(item=item, date__range=[start_date, end_date]).aggregate(Sum('added_quantity'))['added_quantity__sum'] or 0
+
+#         # **Stock Sold During the Period**
+#         sells = order_items.filter(item=item).aggregate(Sum('quantity'))['quantity__sum'] or 0
+
+#         # **Calculate Closing Stock**
+#         closing = (opening + added) - sells
+
+#         unit_price = item.unit_price
+#         cash_sells = sells * unit_price
+
+#         data.append([
+#             item.name, opening, added, sells, closing, unit_price, cash_sells
+#         ])
+
+#     # Create DataFrame
+#     df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Sells", "Closing", "Unit Price", "Cash Sells"])
+
+#     # Add Total Row
+#     total_cash_sales = df["Cash Sells"].sum()
+#     df.loc["Total"] = ["", "", "", "", "", "Total Sales", total_cash_sales]
+
+#     file_name = f"filtered_data_{start_date}_{end_date}.xlsx"
+    
+#     # Convert to Excel
+#     response = HttpResponse(content_type='application/vnd.ms-excel')
+#     response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+#     df.to_excel(response, index=False)
+
+#     return response
+
+
+# def export_excel(request):
+#     # Get filter parameters
+#     start_date = request.GET.get('start_date')
+#     end_date = request.GET.get('end_date')
+#     page = request.GET.get('page', 'home')  # Default to home
+
+#     # Fetch orders based on page selection
+#     orders = Order.objects.all()
+#     if page == "home":
+#         orders = orders.filter(is_paid=False)
+
+#     # Filter orders based on date
+#     if start_date and end_date:
+#         start_date = parse_date(start_date)
+#         end_date = parse_date(end_date)
+#         if start_date and end_date:
+#             orders = orders.filter(created_at__date__range=[start_date, end_date])
+
+#     # Fetch order items linked to filtered orders
+#     order_items = OrderItem.objects.filter(order__in=orders)
+
+#     # Prepare Data for Excel
+#     data = []
+#     items = Item.objects.all()  # Fetch all items
+
+#     for item in items:
+#         opening = item.stock_quantity  # Initial stock
+#         # added = sum(oi.quantity for oi in order_items if oi.item == item)  # Stock added from orders
+#         # stock_total = opening + added
+#         sells = sum(oi.quantity for oi in order_items if oi.item == item)  # Sold items
+#         closing = opening - sells
+#         unit_price = item.unit_price
+#         cash_sells = sells * unit_price
+
+#         data.append([
+#             item.name, opening, sells, closing, unit_price, cash_sells
+#         ])
+
+#     # Create DataFrame
+#     # df = pd.DataFrame(data, columns=["Item Name", "Opening", "Added", "Stock Total", "Sells", "Closing", "Unit Price", "Cash Sells"])
+#     df = pd.DataFrame(data, columns=["Item Name", "Opening", "Sells", "Closing", "Unit Price", "Cash Sells"])
+
+#     # Add Total Row
+#     total_cash_sales = df["Cash Sells"].sum()
+#     df.loc["Total"] = ["", "", "", "", "Total Sales", total_cash_sales]
+
+#     file_name = f"filtered_data_{start_date}_{end_date}.xlsx"
+#     # Convert to Excel
+#     response = HttpResponse(content_type='application/vnd.ms-excel')
+#     response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+#     df.to_excel(response, index=False)
+
+#     return response
 
 
 # def export_excel(request):

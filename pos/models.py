@@ -43,3 +43,11 @@ class Expense(models.Model):
 
     def __str__(self):
         return f"{self.description} - {self.amount}"
+
+class Added(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)  # Link to User model
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    added_quantity = models.IntegerField()
+    date = models.DateField(auto_now_add=True)
+
+

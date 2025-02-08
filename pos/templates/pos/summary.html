@@ -17,7 +17,7 @@
 
 <style>
 
-.sidebar {
+/* .sidebar {
             width: 250px;
             position: fixed;
             top: 80px;
@@ -27,7 +27,7 @@
             height: 100vh;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
-        }
+        } */
 
         /* @media (max-width: 768px) {
             .sidebar {
@@ -37,11 +37,11 @@
             
         } */
 
-        .sidebar.active {
+        /* .sidebar.active {
             transform: translateX(0);
-        }
+        } */
 
-        .sidebar-toggle {
+        /* .sidebar-toggle {
             position: fixed;
             top: 20px;
             left: 20px;
@@ -54,9 +54,9 @@
             border-radius: 5px;
             z-index: 1000;
             transition: background-color 0.3s ease;
-        }
+        } */
 
-        .sidebar-toggle:hover {
+        /* .sidebar-toggle:hover {
             background-color: #0056b3;
         }
 
@@ -72,7 +72,7 @@
 
         .sidebar .btn i {
             font-size: 1.2rem;
-        }
+        } */
 
         .date-picker-container {
             margin-top: 20px;
@@ -98,50 +98,56 @@
 
 
         /* Sidebar styles */
-.sidebar {
+/* .sidebar {
     
     position: fixed;
-    left: -250px;  /* Initially hidden */
+    left: -250px;  Initially hidden
     top: 0;
     padding-top: 100px;
     width: 250px;
     height: 100%;
     background-color: #333;
     color: white;
-    transition: left 0.3s ease;  /* Slide animation */
+    transition: left 0.3s ease;  Slide animation
     z-index: 1000;
-}
+} */
 
 /* When sidebar is open, move it to the left */
-.sidebar.show {
-    display: block; /* Make it visible */
+/* .sidebar.show {
+    display: block; Make it visible
     left: 0;
-}
+} */
 
 /* Button styles for toggle */
-.sidebar-toggle {
+/* .sidebar-toggle {
     position: absolute;
     top: 20px;
     left: 20px;
-    z-index: 1100;  /* Ensures the button is on top */
+    z-index: 1100;  Ensures the button is on top
     cursor: pointer;
-}
+} */
 
 /* Optional: Add smooth transition for button (e.g., scaling the icon) */
-.sidebar-toggle i {
+/* .sidebar-toggle i {
     font-size: 24px;
     transition: transform 0.3s ease;
-}
+} */
 
-.sidebar.show + .sidebar-toggle i {
-    transform: rotate(90deg);  /* Optional: Rotate icon when sidebar is open */
-}
+/* .sidebar.show + .sidebar-toggle i {
+    transform: rotate(90deg);  Optional: Rotate icon when sidebar is open
+} */
 
 /* Example CSS to show the button on smaller screens */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .sidebar-toggle {
         display: block;
     }
+} */
+
+.c-container {
+    padding-left: 24%;
+    padding-top: 5% !important;
+    /* padding: 100px; */
 }
 
 </style>
