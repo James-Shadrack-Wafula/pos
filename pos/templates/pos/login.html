@@ -74,8 +74,8 @@
         <h2>Welcome Back</h2>
         <form method="post">
             {% csrf_token %}
-            <input type="text" name="username" class="form-control" placeholder="Username" required>
-            <input type="password" name="password" class="form-control" placeholder="Password" required>
+            <input type="text" name="username" class="form-control bg-white" placeholder="Username" required>
+            <input type="password" name="password" class="form-control bg-white" placeholder="Password" required>
             <button type="submit" class="btn btn-primary mt-3">Login</button>
         </form>
         <a href="{% url 'register' %}" class="register-link">Don't have an account? Register</a>
