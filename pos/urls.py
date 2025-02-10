@@ -29,5 +29,23 @@ urlpatterns = [
     path('register/', views.register, name='register'),
 
     path('order/<int:order_id>/toggle-payment/', views.toggle_payment_status, name='toggle_payment_status'),
+    path('menu/', views.online_menu, name='online_menu'),
+    path('customer-order/', views.place_order, name='customer-order'),
 
+
+    # path("add-to-cart/", views.add_to_cart, name="add_to_cart"),
+    # path("remove-from-cart/", views.remove_from_cart, name="remove_from_cart"),
+    # path("get-cart-items/", views.get_cart_items, name="get_cart_items"),
+
+
+    path('add-to-cart/<int:item_id>/', views.add_to_cart, name='add_to_cart'),
+    path('remove-from-cart/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('get-cart/', views.get_cart_data, name='get_cart'),
+
+
+    path('get-cart-count/', views.get_cart_count, name='get_cart_count'),  # API for cart count
+
+    path("update-cart/<str:item_id>/<str:action>/", views.update_cart, name="update_cart"),
+
+    path("clear-cart/", views.clear_cart, name="clear-cart"),
 ]

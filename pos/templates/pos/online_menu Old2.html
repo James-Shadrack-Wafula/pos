@@ -1,0 +1,436 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Menu</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/daterangepicker.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/daterangepicker.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+    <style>
+        /* Ensure the modal has a higher z-index than the overlay */
+        .modal {
+                    display: none;
+                    position: fixed;
+                    z-index: 1051; /* Higher than the overlay */
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    overflow: auto;
+                    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+                }
+        
+                .modal-content {
+                    background-color: white;
+                    margin: 10% auto;
+                    padding: 10px;
+                    border: 1px solid #888;
+                    width: 100%;
+                    max-width: 600px;
+                    border-radius: 10px;
+                    position: relative;
+                }
+        
+                .close {
+                    color: red;
+                    float: right;
+                    font-size: 28px;
+                    cursor: pointer;
+                }
+        
+                .close:hover {
+                    color: darkred;
+                }
+        
+        
+        
+                /* .modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); }
+                .modal-content { background-color: white; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 50%; max-width: 600px; }
+                .close { color: red; float: right; font-size: 28px; cursor: pointer; } */
+                .sidebar-toggle { position: fixed; top: 10px; left: 10px; z-index: 1000; background: none; border: none; cursor: pointer; font-size: 24px; }
+                .sidebar { width: 250px; position: fixed; left: -250px; top: 0; height: 100%; background: #343a40; padding: 20px; transition: 0.3s; }
+                /* .sidebar.show { left: 0; } */
+                .sidebar.show {
+            left: 0; /* Visible when the "show" class is added */
+        }
+        
+                .card {
+                    background-color: #fff;
+                    border: none;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                    overflow: hidden;
+                    margin-bottom: 20px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    max-width: 300px; /* Adjusted card size */
+                }
+        
+                .card-body {
+                    padding: 20px;
+                }
+        
+                .card-title {
+                    font-size: 1.5rem;
+                    margin-bottom: 15px;
+                }
+        
+                .list-group-item {
+                    padding: 10px 15px;
+                    border: 1px solid #e2e6ea;
+                    border-radius: 10px;
+                    background-color: #f8f9fa;
+                    margin-bottom: 10px;
+                }
+        
+                .list-group-item:last-child {
+                    margin-bottom: 0;
+                }
+        
+                .list-group-item .text-muted {
+                    font-size: 0.9rem;
+                }
+        
+                .btn {
+                    font-size: 1.1rem;
+                    padding: 10px;
+                    border-radius: 8px;
+                }
+        
+                .btn-primary {
+                    background-color: #007bff;
+                    border-color: #007bff;
+                    transition: all 0.3s ease;
+                }
+        
+                .btn-primary:hover {
+                    background-color: #0056b3;
+                    border-color: #0056b3;
+                }
+        
+                .d-flex {
+                    display: flex;
+                }
+        
+                .justify-content-between {
+                    justify-content: space-between;
+                }
+        
+                .w-100 {
+                    width: 100%;
+                }
+        
+                .mt-3 {
+                    margin-top: 1rem;
+                }
+        
+                .text-success {
+                    color: #28a745;
+                }
+        
+                .container {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                    /* margin-left: 250px; */
+                }
+        
+                .row {
+                    margin-bottom: 20px;
+                }
+        
+                .text-muted {
+                    margin-left: 20px;
+                }
+        
+                .sidebar {
+                    width: 250px;
+                    position: fixed;
+                    top: 80px;
+                    left: 0;
+                    background-color: #f8f9fa;
+                    padding: 20px;
+                    height: 100vh;
+                    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s ease-in-out;
+                }
+        
+                /* @media (max-width: 768px) {
+                    .sidebar {
+                        transform: translateX(-100%);
+                        position: fixed;
+                    }
+                    
+                } */
+        
+                .sidebar.active {
+                    transform: translateX(0);
+                }
+        
+                .sidebar-toggle {
+                    position: fixed;
+                    top: 20px;
+                    left: 20px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    z-index: 1000;
+                    transition: background-color 0.3s ease;
+                }
+        
+                .sidebar-toggle:hover {
+                    background-color: #0056b3;
+                }
+        
+                .sidebar .btn {
+                    font-size: 1.1rem;
+                    padding: 12px;
+                    border-radius: 8px;
+                    text-align: left;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+        
+                .sidebar .btn i {
+                    font-size: 1.2rem;
+                }
+        
+                .date-picker-container {
+                    margin-top: 20px;
+                }
+        
+                .date-label {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    margin-bottom: 5px;
+                }
+        
+                .date-picker {
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 8px;
+                    border: 1px solid #ced4da;
+                    font-size: 1rem;
+                }
+        
+        
+        
+                /* Sidebar styles */
+        .sidebar {
+            
+            position: fixed;
+            left: -250px;  
+            top: 0;
+            padding-top: 5%;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            transition: left 0.3s ease;  /* Slide animation */
+            z-index: 3000;
+        }
+        
+        /* When sidebar is open, move it to the left */
+        .sidebar.show {
+            display: block; /* Make it visible */
+            left: 0;
+        }
+        
+        /* Button styles for toggle */
+        .sidebar-toggle {
+            /* position: absolute;
+            top: 20px;
+            left: 20px; */
+            z-index: 3100;  /* Ensures the button is on top */
+            cursor: pointer;
+        }
+        
+        /* Optional: Add smooth transition for button (e.g., scaling the icon) */
+        .sidebar-toggle i {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar.show + .sidebar-toggle i {
+            transform: rotate(90deg);  /* Optional: Rotate icon when sidebar is open */
+        }
+        
+        /* Example CSS to show the button on smaller screens */
+        @media (max-width: 768px) {
+            .sidebar-toggle {
+                display: block;
+            }
+        }
+        
+        .c-container{
+            padding-left: 25%;
+            padding-top: 10% !important;
+            /* padding: 100px; */
+        }
+        
+        
+        .navbar {
+            /* z-index: 10; */
+            padding: 20px;
+            height: 80px;
+            background: linear-gradient(to right,  #2575fc, #6a11cb);
+            width: 100%;
+            /* margin-left: 15%; */
+            padding-left: 15%;
+        
+        }
+        
+        .navbar-brand img {
+            border-radius: 50%;
+        }
+        .navbar-brand {
+            margin-left: 100px;
+            /* padd */
+        }
+        
+        .navbar-nav .nav-link {
+            font-size: 16px;
+            padding: 8px 15px;
+        }
+        
+        .dropdown-menu {
+            min-width: 180px;
+        }
+        
+        .dropdown-menu .dropdown-item {
+            font-size: 14px;
+            padding: 10px;
+        }
+        
+        .c-navcontent{
+            float: right !important;
+        }
+        .c-authsection{
+            width:10%;
+        }
+        
+        /* Always show sidebar on large screens */
+        @media (min-width: 992px) {
+            #sidebar {
+                left: 0; /* Always visible */
+            }
+            #sidebarToggle {
+                display: none;
+            }
+        }
+        
+        
+        
+            </style>
+    <button class="btn btn-primary ms-5 " style="position: fixed; z-index: 1; margin-left: 20px;" id="cart-btn">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle" id="cart-count">0</span>
+    </button>
+    <div class="container mt-5">
+
+        {% if messages %}
+    {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert" style="z-index: 10;">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+        <div class="d-flex justify-content-between">
+            <h2>Online Menu</h2>
+            <!-- <button class="btn btn-primary position-relative " style="position: fixed;" id="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge bg-danger position-absolute top-0 start-100 translate-middle" id="cart-count">0</span>
+            </button> -->
+        </div>
+        
+        <div class="row mt-4" id="menu-items">
+            {% for item in items %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{% if item.image %}{{ item.image.url }}{% else %}{% static 'images/default-image.png' %}{% endif %}" class="card-img-top" alt="{{ item.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">sh.{{ item.unit_price }}</p>
+                        <button class="btn btn-primary add-to-cart" data-id="{{ item.id }}" data-name="{{ item.name }}" data-price="{{ item.unit_price }}">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- Cart Modal -->
+
+    <!-- Cart Modal -->
+    <form id="order-form" method="POST" action="{% url 'customer-order' %}">
+        {% csrf_token %}
+        <div class="modal fade" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="cart-list" class="list-group"></ul>
+                        <h4 class="mt-3">Total: sh.<span id="cart-total">0.00</span></h4>
+    
+                        <!-- Table Number Input -->
+                        <label for="table-number" class="form-label">Enter Table Number:</label>
+                        <input type="number" id="table-number" name="table_number" class="form-control" placeholder="Table number">
+                        
+                        <!-- <input type="hidden" id="cart-data" name="cart"> -->
+                        <input type="hidden" id="cart-data" name="cart" value="[]">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="checkout">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+ 
+<script>
+    document.getElementById('cart-btn').addEventListener('click', function() {
+        new bootstrap.Modal(document.getElementById('cart-modal')).show();
+    });
+</script>
+
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

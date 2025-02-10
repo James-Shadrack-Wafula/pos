@@ -496,6 +496,325 @@ def export_excel(request):
     return response
 
 
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from .models import Item, CustomerOrder, CustomerOrderItem
+
+# View for displaying the menu
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from .models import Item, CustomerOrder, CustomerOrderItem
+
+# View for displaying the menu
+def online_menu(request):
+    items = Item.objects.all()
+    """Render the online menu with the cart count."""
+    cart = request.session.get('cart', {})
+    cart_count = sum(item['quantity'] for item in cart.values())  # Count total items
+
+    return render(request, 'pos/online_menu.html', {'items': items, 'cart_count': cart_count})
+
+# View for handling the checkout process
+
+import json
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Order, OrderItem
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Order, OrderItem
+
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Order, OrderItem
+
+
+import json
+from django.http import JsonResponse
+from .models import Order, OrderItem, Item  # Ensure these models are correctly imported
+@csrf_exempt
+def place_order(request):
+    if request.method == "POST":
+        try:
+            print("Raw Request Body:", request.body)  # Debugging Output
+
+            # Get form data
+            table_number = request.POST.get("table_number")
+            cart_data = request.POST.get("cart")  # JSON string
+
+            if not table_number or not cart_data:
+                return JsonResponse({"error": "Missing table number or cart data"}, status=400)
+
+            cart = json.loads(cart_data)  # Convert JSON string to Python list
+
+            # Create the order
+            order = Order.objects.create(table_number=table_number)
+
+            # Iterate over cart items and create OrderItem instances
+            for item in cart:
+                item_name = item.get("name")  # Get item name from JSON
+                quantity = item.get("quantity")
+                
+                # Validate required fields
+                if not item_name or quantity is None:
+                    return JsonResponse({"error": "Invalid item data"}, status=400)
+
+                # Fetch the Item instance from the database
+                try:
+                    item_instance = Item.objects.get(name=item_name)
+                except Item.DoesNotExist:
+                    return JsonResponse({"error": f"Item '{item_name}' does not exist"}, status=400)
+
+                # Create OrderItem with the correct Item instance
+                OrderItem.objects.create(
+                    order=order,
+                    item=item_instance,  # ✅ Correcting this line
+                    # price=item_instance.unit_price,  # Ensure price is fetched from DB
+                    quantity=quantity
+                )
+
+            messages.success(request, "Order placed successfully!")
+            return redirect("online_menu")  # ✅ Redirect to the online menu
+
+        except Exception as e:
+            print("Exception:", str(e))  # Debugging Output
+            messages.error(request, "An error occurred while placing the order.")
+            return redirect("online_menu")
+
+    messages.error(request, "Invalid request method")
+    return redirect("online_menu")
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from django.contrib.sessions.models import Session
+from .models import Cart, CartItem, Item
+
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from .models import Item
+
+def add_to_cart(request, item_id):
+    """Add an item to the cart stored in the session."""
+    cart = request.session.get('cart', {})
+    item = Item.objects.get(id=item_id)
+    
+    if str(item_id) in cart:
+        cart[str(item_id)]['quantity'] += 1
+    else:
+        item = Item.objects.get(id=item_id)
+        cart[str(item_id)] = {
+            'name': item.name,
+            'price': float(item.unit_price),
+            'quantity': 1
+        }
+
+    request.session['cart'] = cart  # Save cart in session
+
+     # ✅ Add a success message
+    messages.success(request, f"{item.name} has been added to your cart!")
+
+    return redirect('online_menu')  # Redirect back to menu page
+
+def remove_from_cart(request, item_id):
+    """Remove an item from the cart."""
+    cart = request.session.get('cart', {})
+
+    if str(item_id) in cart:
+        del cart[str(item_id)]
+        request.session['cart'] = cart
+
+    return redirect('menu')
+
+def get_cart_data(request):
+    """Fetch the cart data to update the modal dynamically."""
+    cart = request.session.get('cart', {})
+    total_price = sum(item['price'] * item['quantity'] for item in cart.values())
+
+    return JsonResponse({'cart': cart, 'total_price': total_price})
+
+
+
+from django.http import JsonResponse
+
+def get_cart_count(request):
+    """Returns the cart count as JSON for AJAX updates."""
+    cart = request.session.get('cart', {})
+    cart_count = sum(item['quantity'] for item in cart.values())  # Calculate count
+    return JsonResponse({'count': cart_count})
+
+
+
+
+
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from .models import Item  # Import Item model
+
+def update_cart(request, item_id, action):
+    """Handles cart updates for increasing, decreasing, or removing items."""
+    cart = request.session.get('cart', {})
+
+    if item_id not in cart:
+        return JsonResponse({"error": "Item not in cart"}, status=400)
+
+    if action == "increase":
+        cart[item_id]["quantity"] += 1
+    elif action == "decrease":
+        cart[item_id]["quantity"] = max(1, cart[item_id]["quantity"] - 1)
+    elif action == "remove":
+        del cart[item_id]
+
+    request.session["cart"] = cart  # Save updated cart
+    cart_count = sum(item["quantity"] for item in cart.values())
+
+    return JsonResponse({"cart": cart, "cart_count": cart_count})
+
+
+from django.http import JsonResponse
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+def clear_cart(request):
+    """Clear the shopping cart from the session and redirect to the menu with a success message."""
+    if request.method == "POST":
+        request.session['cart'] = {}  # Clear the cart
+        request.session.modified = True
+        messages.success(request, "Cart has been cleared successfully.")  # Display message
+        return render(request, "pos/online_menu.html", {"message": "Cart cleared successfully!"})  # Render menu page
+
+    return render(request, "pos/online_menu.html", {"message": "An error occured"})  # Render menu page
+
+    # return JsonResponse({"error": "Invalid request"}, status=400)
+
+
+# def clear_cart(request):
+#     """Clear the shopping cart from the session and show a success message."""
+#     if request.method == "POST":
+#         request.session['cart'] = {}  # Clear the cart
+#         request.session.modified = True
+#         messages.success(request, "Cart has been cleared successfully.")  # Add success message
+#     return redirect("online_menu")
+    # return render(request, "pos/online_menu.html")  # Render online_menu.html with the message
+
+# def clear_cart(request):
+#     """Clear the shopping cart from the session."""
+#     if request.method == "POST":
+#         request.session['cart'] = {}
+#         request.session.modified = True
+#         return JsonResponse({"success": True})
+#     return JsonResponse({"error": "Invalid request"}, status=400)
+
+# def get_cart(request):
+#     """Retrieve the user's cart or create a new one if none exists."""
+#     if request.user.is_authenticated:
+#         cart, created = Cart.objects.get_or_create(user=request.user)
+#     else:
+#         session_id = request.session.session_key
+#         if not session_id:
+#             request.session.create()
+#             session_id = request.session.session_key
+#         cart, created = Cart.objects.get_or_create(session_id=session_id)
+#     return cart
+
+# from django.shortcuts import render, redirect
+# from django.http import JsonResponse
+# from .models import Item
+
+# def add_to_cart(request, item_id):
+#     """Add an item to the cart stored in the session."""
+#     cart = request.session.get('cart', {})
+
+#     if item_id in cart:
+#         cart[item_id]['quantity'] += 1
+#     else:
+#         item = Item.objects.get(id=item_id)
+#         cart[item_id] = {'name': item.name, 'price': item.unit_price, 'quantity': 1}
+
+#     request.session['cart'] = cart  # Save cart in session
+#     return redirect('menu')  # Redirect back to menu page
+
+# def remove_from_cart(request, item_id):
+#     """Remove an item from the cart."""
+#     cart = request.session.get('cart', {})
+
+#     if item_id in cart:
+#         del cart[item_id]
+#         request.session['cart'] = cart
+
+#     return redirect('menu')
+
+# def view_cart(request):
+#     """Display the cart."""
+#     cart = request.session.get('cart', {})
+#     total_price = sum(item['price'] * item['quantity'] for item in cart.values())
+
+#     return render(request, 'cart.html', {'cart': cart, 'total_price': total_price})
+
+
+# def get_cart_items(request):
+#     """Retrieve cart items for display."""
+#     cart = get_cart(request)
+#     items = [
+#         {"id": item.product.id, "name": item.product.name, "quantity": item.quantity, "price": item.product.unit_price}
+#         for item in cart.cartitem_set.all()
+#     ]
+#     return JsonResponse({"cart": items, "total": cart.get_total_price()})
+
+# @csrf_exempt  # Remove this if CSRF is handled via the form
+# def place_order(request):
+#     if request.method == "POST":
+#         try:
+#             table_number = request.POST.get("table_number")
+#             cart_data = request.POST.get("cart")  # This will be a JSON string
+
+#             if not table_number or not cart_data:
+#                 return JsonResponse({"error": "Missing table number or cart data"}, status=400)
+
+#             cart = json.loads(cart_data)  # Convert JSON string to Python list
+
+#             # Save the order in the database
+#             order = Order.objects.create(table_number=table_number, status="Pending")
+
+#             # Save order items
+#             for item in cart:
+#                 OrderItem.objects.create(
+#                     order=order,
+#                     item_name=item["name"],
+#                     price=item["price"],
+#                     quantity=item["quantity"]
+#                 )
+
+#             return JsonResponse({"message": "Order placed successfully", "order_id": order.id}, status=200)
+
+#         except Exception as e:
+#             return JsonResponse({"error": str(e)}, status=500)
+
+#     return JsonResponse({"error": "Invalid request method"}, status=400)
+
+# def place_order(request, table_number):
+#     if request.method == "POST":
+#         cart = request.POST.get('cart', '[]')
+#         cart_items = eval(cart)  # Convert string to list
+#         if not cart_items:
+#             return JsonResponse({'error': 'Cart is empty'}, status=400)
+
+#         order = CustomerOrder.objects.create(table_number=table_number, is_paid=False)
+#         for item in cart_items:
+#             item_obj = Item.objects.get(id=item['id'])
+#             CustomerOrderItem.objects.create(
+#                 customer_order=order,
+#                 item=item_obj,
+#                 quantity=item['quantity']
+#             )
+#         return JsonResponse({'message': 'Order placed successfully!', 'order_id': order.id})
+
+#     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
 # def export_excel(request):
 #     # Get filter parameters
 #     start_date = request.GET.get('start_date')
