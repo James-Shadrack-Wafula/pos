@@ -1,0 +1,3903 @@
+{
+    "admin.LogEntry": [
+        {
+            "model": "admin.logentry",
+            "pk": 149,
+            "fields": {
+                "action_time": "2025-02-12T09:41:05.460Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "32",
+                "object_repr": "Order 32 - Table 1",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Is paid\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 148,
+            "fields": {
+                "action_time": "2025-02-12T09:39:39.235Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "42",
+                "object_repr": "B/SODA",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 147,
+            "fields": {
+                "action_time": "2025-02-12T09:01:39.863Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "67",
+                "object_repr": "TASKER MALT",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 146,
+            "fields": {
+                "action_time": "2025-02-12T09:01:21.905Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "65",
+                "object_repr": "GM 3/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 145,
+            "fields": {
+                "action_time": "2025-02-12T09:01:09.967Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "64",
+                "object_repr": "GM 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 144,
+            "fields": {
+                "action_time": "2025-02-12T09:00:56.998Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "60",
+                "object_repr": "Kingfisher",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 143,
+            "fields": {
+                "action_time": "2025-02-12T09:00:41.149Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "57",
+                "object_repr": "WHITE CAP",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 142,
+            "fields": {
+                "action_time": "2025-02-12T09:00:16.527Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "47",
+                "object_repr": "CIDER",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 141,
+            "fields": {
+                "action_time": "2025-02-12T08:59:58.459Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "46",
+                "object_repr": "TUSKER",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 140,
+            "fields": {
+                "action_time": "2025-02-12T08:59:41.703Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "45",
+                "object_repr": "TRIPLE ACE 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 139,
+            "fields": {
+                "action_time": "2025-02-12T08:59:12.965Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "44",
+                "object_repr": "B/DASANI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 138,
+            "fields": {
+                "action_time": "2025-02-12T08:58:57.244Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "44",
+                "object_repr": "B/DASANI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 137,
+            "fields": {
+                "action_time": "2025-02-12T08:58:26.131Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "43",
+                "object_repr": "S/DASANI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 136,
+            "fields": {
+                "action_time": "2025-02-12T08:58:07.015Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "42",
+                "object_repr": "B/SODA",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 135,
+            "fields": {
+                "action_time": "2025-02-12T08:57:51.393Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "41",
+                "object_repr": "S/SODA",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 134,
+            "fields": {
+                "action_time": "2025-02-12T08:57:24.203Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "39",
+                "object_repr": "PREDETOR",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 133,
+            "fields": {
+                "action_time": "2025-02-12T08:56:43.791Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "38",
+                "object_repr": "POWER PLAY",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 132,
+            "fields": {
+                "action_time": "2025-02-12T08:56:22.116Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "36",
+                "object_repr": "B/MINUTE MAID",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 131,
+            "fields": {
+                "action_time": "2025-02-12T08:56:06.476Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "35",
+                "object_repr": "S/MINUTE MAID",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 130,
+            "fields": {
+                "action_time": "2025-02-12T08:55:43.697Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "34",
+                "object_repr": "LEMONADE",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 129,
+            "fields": {
+                "action_time": "2025-02-12T08:55:09.832Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "32",
+                "object_repr": "KIBAO 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 128,
+            "fields": {
+                "action_time": "2025-02-12T08:54:48.065Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "24",
+                "object_repr": "HUNTER'S 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 127,
+            "fields": {
+                "action_time": "2025-02-12T08:54:26.645Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "21",
+                "object_repr": "GUINNESS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 126,
+            "fields": {
+                "action_time": "2025-02-12T08:53:53.062Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "17",
+                "object_repr": "GUARANA",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 125,
+            "fields": {
+                "action_time": "2025-02-12T08:53:32.955Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "16",
+                "object_repr": "CHROME GIN 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 124,
+            "fields": {
+                "action_time": "2025-02-12T08:53:10.056Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "14",
+                "object_repr": "CHROME V 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 123,
+            "fields": {
+                "action_time": "2025-02-12T08:52:45.585Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "10",
+                "object_repr": "BLACK AND WHITE 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 122,
+            "fields": {
+                "action_time": "2025-02-12T08:52:08.962Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "5",
+                "object_repr": "BEST WHISKY 1/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 121,
+            "fields": {
+                "action_time": "2025-02-12T08:51:47.373Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "4",
+                "object_repr": "BALOZI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 120,
+            "fields": {
+                "action_time": "2025-02-12T08:51:32.621Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 119,
+            "fields": {
+                "action_time": "2025-02-09T13:34:02.224Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "61",
+                "object_repr": "BEST WHISKY 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 118,
+            "fields": {
+                "action_time": "2025-02-09T13:30:57.616Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "5",
+                "object_repr": "BEST WHISKY 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 117,
+            "fields": {
+                "action_time": "2025-02-09T13:25:00.809Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "4",
+                "object_repr": "BALOZI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 116,
+            "fields": {
+                "action_time": "2025-02-09T13:22:50.978Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 115,
+            "fields": {
+                "action_time": "2025-02-09T13:20:37.499Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 114,
+            "fields": {
+                "action_time": "2025-02-09T13:20:20.520Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 113,
+            "fields": {
+                "action_time": "2025-02-09T12:53:07.050Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 112,
+            "fields": {
+                "action_time": "2025-02-08T14:52:08.936Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "69",
+                "object_repr": "Test Item",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 111,
+            "fields": {
+                "action_time": "2025-02-08T14:41:36.424Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "22",
+                "object_repr": "Order 22 - Table 12",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"User\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 109,
+            "fields": {
+                "action_time": "2025-02-03T13:03:24.093Z",
+                "user": 1,
+                "content_type": 7,
+                "object_id": "2",
+                "object_repr": "Food - 1200.00",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 110,
+            "fields": {
+                "action_time": "2025-02-03T13:03:24.093Z",
+                "user": 1,
+                "content_type": 7,
+                "object_id": "1",
+                "object_repr": "Transport - 400.00",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 108,
+            "fields": {
+                "action_time": "2025-02-03T13:02:28.192Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "68",
+                "object_repr": "NOVIDA",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 107,
+            "fields": {
+                "action_time": "2025-02-03T13:01:48.714Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "43",
+                "object_repr": "S/DASANI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 106,
+            "fields": {
+                "action_time": "2025-02-03T13:01:34.740Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "41",
+                "object_repr": "S/SODA",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 105,
+            "fields": {
+                "action_time": "2025-02-03T13:01:17.139Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "41",
+                "object_repr": "S/SODA",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 104,
+            "fields": {
+                "action_time": "2025-02-03T13:00:31.641Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "39",
+                "object_repr": "PREDETOR",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 103,
+            "fields": {
+                "action_time": "2025-02-03T13:00:14.012Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "38",
+                "object_repr": "POWER PLAY",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 102,
+            "fields": {
+                "action_time": "2025-02-03T12:59:45.835Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "35",
+                "object_repr": "S/MINUTE MAID",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 101,
+            "fields": {
+                "action_time": "2025-02-03T12:50:05.633Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "67",
+                "object_repr": "TASKER MALT",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 100,
+            "fields": {
+                "action_time": "2025-02-03T12:49:41.995Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "66",
+                "object_repr": "TASKER LITE",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 99,
+            "fields": {
+                "action_time": "2025-02-03T12:49:17.103Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "65",
+                "object_repr": "GM 3/4",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 98,
+            "fields": {
+                "action_time": "2025-02-03T12:48:49.922Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "64",
+                "object_repr": "GM 1/4",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 97,
+            "fields": {
+                "action_time": "2025-02-03T12:48:05.049Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "63",
+                "object_repr": "CAPTAIN MORGAN 3/4",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 96,
+            "fields": {
+                "action_time": "2025-02-03T12:47:41.013Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "62",
+                "object_repr": "CAPTAIN MORGAN 1/4",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 95,
+            "fields": {
+                "action_time": "2025-02-03T12:46:07.997Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "7",
+                "object_repr": "BEST GIN 3/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 94,
+            "fields": {
+                "action_time": "2025-02-03T12:46:01.266Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "8",
+                "object_repr": "BEST CREAM 1/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 93,
+            "fields": {
+                "action_time": "2025-02-03T12:45:54.187Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "9",
+                "object_repr": "BLACK AND WHITE 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 92,
+            "fields": {
+                "action_time": "2025-02-03T12:45:47.569Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "10",
+                "object_repr": "BLACK AND WHITE 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 91,
+            "fields": {
+                "action_time": "2025-02-03T12:45:35.040Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "11",
+                "object_repr": "BRAVADO",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 90,
+            "fields": {
+                "action_time": "2025-02-03T12:45:16.122Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "12",
+                "object_repr": "COUNTY 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 89,
+            "fields": {
+                "action_time": "2025-02-03T12:44:57.265Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "13",
+                "object_repr": "COUNTY 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 88,
+            "fields": {
+                "action_time": "2025-02-03T12:44:36.569Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "14",
+                "object_repr": "CHROME V 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 87,
+            "fields": {
+                "action_time": "2025-02-03T12:44:19.222Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "15",
+                "object_repr": "CHROME V 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 86,
+            "fields": {
+                "action_time": "2025-02-03T12:43:41.939Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "16",
+                "object_repr": "CHROME GIN 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 85,
+            "fields": {
+                "action_time": "2025-02-03T12:43:04.453Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "17",
+                "object_repr": "GUARANA",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 84,
+            "fields": {
+                "action_time": "2025-02-03T12:42:50.475Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "18",
+                "object_repr": "GILBEY'S 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 83,
+            "fields": {
+                "action_time": "2025-02-03T12:42:33.997Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "19",
+                "object_repr": "GILBEY'S 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 82,
+            "fields": {
+                "action_time": "2025-02-03T12:42:24.209Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "20",
+                "object_repr": "GILBEY'S 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 81,
+            "fields": {
+                "action_time": "2025-02-03T12:42:01.387Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "21",
+                "object_repr": "GUINNESS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 80,
+            "fields": {
+                "action_time": "2025-02-03T12:41:21.707Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "22",
+                "object_repr": "DELMONTE",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 79,
+            "fields": {
+                "action_time": "2025-02-03T12:41:10.507Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "23",
+                "object_repr": "GOFRUT",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 78,
+            "fields": {
+                "action_time": "2025-02-03T12:41:01.020Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "24",
+                "object_repr": "HUNTER'S 1/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 77,
+            "fields": {
+                "action_time": "2025-02-03T12:40:55.405Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "25",
+                "object_repr": "HUNTER'S 1/2",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 76,
+            "fields": {
+                "action_time": "2025-02-03T12:40:48.701Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "26",
+                "object_repr": "HUNTER'S 3/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 75,
+            "fields": {
+                "action_time": "2025-02-03T12:40:21.155Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "26",
+                "object_repr": "HUNTER'S 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 74,
+            "fields": {
+                "action_time": "2025-02-03T12:40:00.147Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "24",
+                "object_repr": "HUNTER'S 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 73,
+            "fields": {
+                "action_time": "2025-02-03T12:39:44.756Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "25",
+                "object_repr": "HUNTER'S 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 72,
+            "fields": {
+                "action_time": "2025-02-03T12:39:20.822Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "27",
+                "object_repr": "KANE EXTRA 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 71,
+            "fields": {
+                "action_time": "2025-02-03T12:38:36.981Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "28",
+                "object_repr": "KANE EXTRA 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 70,
+            "fields": {
+                "action_time": "2025-02-03T12:38:24.860Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "29",
+                "object_repr": "K.C 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 69,
+            "fields": {
+                "action_time": "2025-02-03T12:38:05.213Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "30",
+                "object_repr": "K.C 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 68,
+            "fields": {
+                "action_time": "2025-02-03T12:37:53.811Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "31",
+                "object_repr": "K.C 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 67,
+            "fields": {
+                "action_time": "2025-02-03T12:37:32.351Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "32",
+                "object_repr": "KIBAO 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 66,
+            "fields": {
+                "action_time": "2025-02-03T12:37:15.476Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "33",
+                "object_repr": "KIBAO 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 65,
+            "fields": {
+                "action_time": "2025-02-03T12:36:58.884Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "34",
+                "object_repr": "LEMONADE",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 64,
+            "fields": {
+                "action_time": "2025-02-03T12:36:31.111Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "35",
+                "object_repr": "S/MINUTE MAID",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 63,
+            "fields": {
+                "action_time": "2025-02-03T12:36:10.069Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "36",
+                "object_repr": "B/MINUTE MAID",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 62,
+            "fields": {
+                "action_time": "2025-02-03T12:35:24.834Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "37",
+                "object_repr": "PILSNER",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 61,
+            "fields": {
+                "action_time": "2025-02-03T12:35:08.445Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "40",
+                "object_repr": "RED BULL",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 60,
+            "fields": {
+                "action_time": "2025-02-03T12:34:33.061Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "44",
+                "object_repr": "B/DASANI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 59,
+            "fields": {
+                "action_time": "2025-02-03T12:34:20.567Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "45",
+                "object_repr": "TRIPLE ACE 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 58,
+            "fields": {
+                "action_time": "2025-02-03T12:34:07.248Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "47",
+                "object_repr": "CIDER",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 57,
+            "fields": {
+                "action_time": "2025-02-03T12:34:02.405Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "46",
+                "object_repr": "TUSKER",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 56,
+            "fields": {
+                "action_time": "2025-02-03T12:33:43.647Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "47",
+                "object_repr": "CIDER",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 55,
+            "fields": {
+                "action_time": "2025-02-03T12:33:34.025Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "48",
+                "object_repr": "VAT 69 1/2",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 54,
+            "fields": {
+                "action_time": "2025-02-03T12:33:19.178Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "48",
+                "object_repr": "VAT 69 1/2",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 53,
+            "fields": {
+                "action_time": "2025-02-03T12:33:11.176Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "49",
+                "object_repr": "VAT 69 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 52,
+            "fields": {
+                "action_time": "2025-02-03T12:33:01.094Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "50",
+                "object_repr": "V & A 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 51,
+            "fields": {
+                "action_time": "2025-02-03T12:32:54.401Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "51",
+                "object_repr": "V & A 3/4",
+                "action_flag": 2,
+                "change_message": "[]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 50,
+            "fields": {
+                "action_time": "2025-02-03T12:32:39.475Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "50",
+                "object_repr": "V & A 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 49,
+            "fields": {
+                "action_time": "2025-02-03T12:32:28.030Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "51",
+                "object_repr": "V & A 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 48,
+            "fields": {
+                "action_time": "2025-02-03T12:32:15.127Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "52",
+                "object_repr": "VICEROY 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 47,
+            "fields": {
+                "action_time": "2025-02-03T12:32:07.094Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "53",
+                "object_repr": "VICEROY 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 46,
+            "fields": {
+                "action_time": "2025-02-03T12:32:00.951Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "54",
+                "object_repr": "VICEROY 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 45,
+            "fields": {
+                "action_time": "2025-02-03T12:31:48.351Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "55",
+                "object_repr": "RICHOT 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 44,
+            "fields": {
+                "action_time": "2025-02-03T12:31:38.408Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "56",
+                "object_repr": "RICHOT 1/2",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 43,
+            "fields": {
+                "action_time": "2025-02-03T12:31:21.408Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "57",
+                "object_repr": "WHITE CAP",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 42,
+            "fields": {
+                "action_time": "2025-02-03T12:31:10.352Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "58",
+                "object_repr": "4TH STREET",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 41,
+            "fields": {
+                "action_time": "2025-02-03T12:31:03.903Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "59",
+                "object_repr": "BOND 7 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 40,
+            "fields": {
+                "action_time": "2025-02-03T12:30:55.928Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "60",
+                "object_repr": "Kingfisher",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Unit price\", \"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 39,
+            "fields": {
+                "action_time": "2025-02-03T12:30:13.208Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "8",
+                "object_repr": "BEST CREAM 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 38,
+            "fields": {
+                "action_time": "2025-02-03T12:29:57.241Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "7",
+                "object_repr": "BEST GIN 3/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 37,
+            "fields": {
+                "action_time": "2025-02-03T12:29:25.666Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "61",
+                "object_repr": "BEST WHISKY 3/4",
+                "action_flag": 1,
+                "change_message": "[{\"added\": {}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 36,
+            "fields": {
+                "action_time": "2025-02-03T12:28:28.854Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "6",
+                "object_repr": "BEST GIN 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 35,
+            "fields": {
+                "action_time": "2025-02-03T12:27:25.341Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "5",
+                "object_repr": "BEST WHISKY 1/4",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 34,
+            "fields": {
+                "action_time": "2025-02-03T12:27:02.282Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "4",
+                "object_repr": "BALOZI",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 33,
+            "fields": {
+                "action_time": "2025-02-03T12:26:45.527Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "3",
+                "object_repr": "ALLSOPSS",
+                "action_flag": 2,
+                "change_message": "[{\"changed\": {\"fields\": [\"Unit price\", \"Stock quantity\"]}}]"
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 31,
+            "fields": {
+                "action_time": "2025-02-03T12:26:15.302Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "2",
+                "object_repr": "King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 32,
+            "fields": {
+                "action_time": "2025-02-03T12:26:15.302Z",
+                "user": 1,
+                "content_type": 10,
+                "object_id": "1",
+                "object_repr": "Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 20,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "11",
+                "object_repr": "Order 11 - Table 1",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 21,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "10",
+                "object_repr": "Order 10 - Table 2",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 22,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "9",
+                "object_repr": "Order 9 - Table 5",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 23,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "8",
+                "object_repr": "Order 8 - Table 100",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 24,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "7",
+                "object_repr": "Order 7 - Table 3",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 25,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "6",
+                "object_repr": "Order 6 - Table 44",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 26,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "5",
+                "object_repr": "Order 5 - Table 2",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 27,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "4",
+                "object_repr": "Order 4 - Table 10",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 28,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "3",
+                "object_repr": "Order 3 - Table 6",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 29,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "2",
+                "object_repr": "Order 2 - Table 1",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 30,
+            "fields": {
+                "action_time": "2025-02-03T12:25:54.634Z",
+                "user": 1,
+                "content_type": 8,
+                "object_id": "1",
+                "object_repr": "Order 1 - Table 1",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 1,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "19",
+                "object_repr": "1 x RICHOT 1/4",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 2,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "18",
+                "object_repr": "1 x RICHOT 1/4",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 3,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "17",
+                "object_repr": "2 x BEST GIN 3/4",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 4,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "16",
+                "object_repr": "3 x ALLSOPSS",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 5,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "15",
+                "object_repr": "5 x BEST GIN 1/4",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 6,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "14",
+                "object_repr": "2 x 4TH STREET",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 7,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "13",
+                "object_repr": "2 x TUSKER",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 8,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "12",
+                "object_repr": "5 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 9,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "11",
+                "object_repr": "2 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 10,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "10",
+                "object_repr": "8 x King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 11,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "9",
+                "object_repr": "4 x King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 12,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "8",
+                "object_repr": "2 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 13,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "7",
+                "object_repr": "7 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 14,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "6",
+                "object_repr": "4 x King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 15,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "5",
+                "object_repr": "23 x King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 16,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "4",
+                "object_repr": "1 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 17,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "3",
+                "object_repr": "3 x King Fisher",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 18,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "2",
+                "object_repr": "3 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        },
+        {
+            "model": "admin.logentry",
+            "pk": 19,
+            "fields": {
+                "action_time": "2025-02-03T12:25:45.881Z",
+                "user": 1,
+                "content_type": 9,
+                "object_id": "1",
+                "object_repr": "15 x Balozi",
+                "action_flag": 3,
+                "change_message": ""
+            }
+        }
+    ],
+    "auth.Permission": [
+        {
+            "model": "auth.permission",
+            "pk": 1,
+            "fields": {
+                "name": "Can add log entry",
+                "content_type": 1,
+                "codename": "add_logentry"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 2,
+            "fields": {
+                "name": "Can change log entry",
+                "content_type": 1,
+                "codename": "change_logentry"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 3,
+            "fields": {
+                "name": "Can delete log entry",
+                "content_type": 1,
+                "codename": "delete_logentry"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 4,
+            "fields": {
+                "name": "Can view log entry",
+                "content_type": 1,
+                "codename": "view_logentry"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 9,
+            "fields": {
+                "name": "Can add group",
+                "content_type": 3,
+                "codename": "add_group"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 10,
+            "fields": {
+                "name": "Can change group",
+                "content_type": 3,
+                "codename": "change_group"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 11,
+            "fields": {
+                "name": "Can delete group",
+                "content_type": 3,
+                "codename": "delete_group"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 12,
+            "fields": {
+                "name": "Can view group",
+                "content_type": 3,
+                "codename": "view_group"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 5,
+            "fields": {
+                "name": "Can add permission",
+                "content_type": 2,
+                "codename": "add_permission"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 6,
+            "fields": {
+                "name": "Can change permission",
+                "content_type": 2,
+                "codename": "change_permission"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 7,
+            "fields": {
+                "name": "Can delete permission",
+                "content_type": 2,
+                "codename": "delete_permission"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 8,
+            "fields": {
+                "name": "Can view permission",
+                "content_type": 2,
+                "codename": "view_permission"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 13,
+            "fields": {
+                "name": "Can add user",
+                "content_type": 4,
+                "codename": "add_user"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 14,
+            "fields": {
+                "name": "Can change user",
+                "content_type": 4,
+                "codename": "change_user"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 15,
+            "fields": {
+                "name": "Can delete user",
+                "content_type": 4,
+                "codename": "delete_user"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 16,
+            "fields": {
+                "name": "Can view user",
+                "content_type": 4,
+                "codename": "view_user"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 17,
+            "fields": {
+                "name": "Can add content type",
+                "content_type": 5,
+                "codename": "add_contenttype"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 18,
+            "fields": {
+                "name": "Can change content type",
+                "content_type": 5,
+                "codename": "change_contenttype"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 19,
+            "fields": {
+                "name": "Can delete content type",
+                "content_type": 5,
+                "codename": "delete_contenttype"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 20,
+            "fields": {
+                "name": "Can view content type",
+                "content_type": 5,
+                "codename": "view_contenttype"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 41,
+            "fields": {
+                "name": "Can add added",
+                "content_type": 11,
+                "codename": "add_added"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 42,
+            "fields": {
+                "name": "Can change added",
+                "content_type": 11,
+                "codename": "change_added"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 43,
+            "fields": {
+                "name": "Can delete added",
+                "content_type": 11,
+                "codename": "delete_added"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 44,
+            "fields": {
+                "name": "Can view added",
+                "content_type": 11,
+                "codename": "view_added"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 61,
+            "fields": {
+                "name": "Can add cart",
+                "content_type": 16,
+                "codename": "add_cart"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 62,
+            "fields": {
+                "name": "Can change cart",
+                "content_type": 16,
+                "codename": "change_cart"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 63,
+            "fields": {
+                "name": "Can delete cart",
+                "content_type": 16,
+                "codename": "delete_cart"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 64,
+            "fields": {
+                "name": "Can view cart",
+                "content_type": 16,
+                "codename": "view_cart"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 57,
+            "fields": {
+                "name": "Can add cart item",
+                "content_type": 15,
+                "codename": "add_cartitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 58,
+            "fields": {
+                "name": "Can change cart item",
+                "content_type": 15,
+                "codename": "change_cartitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 59,
+            "fields": {
+                "name": "Can delete cart item",
+                "content_type": 15,
+                "codename": "delete_cartitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 60,
+            "fields": {
+                "name": "Can view cart item",
+                "content_type": 15,
+                "codename": "view_cartitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 45,
+            "fields": {
+                "name": "Can add customer order",
+                "content_type": 12,
+                "codename": "add_customerorder"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 46,
+            "fields": {
+                "name": "Can change customer order",
+                "content_type": 12,
+                "codename": "change_customerorder"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 47,
+            "fields": {
+                "name": "Can delete customer order",
+                "content_type": 12,
+                "codename": "delete_customerorder"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 48,
+            "fields": {
+                "name": "Can view customer order",
+                "content_type": 12,
+                "codename": "view_customerorder"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 53,
+            "fields": {
+                "name": "Can add customer order item",
+                "content_type": 14,
+                "codename": "add_customerorderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 54,
+            "fields": {
+                "name": "Can change customer order item",
+                "content_type": 14,
+                "codename": "change_customerorderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 55,
+            "fields": {
+                "name": "Can delete customer order item",
+                "content_type": 14,
+                "codename": "delete_customerorderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 56,
+            "fields": {
+                "name": "Can view customer order item",
+                "content_type": 14,
+                "codename": "view_customerorderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 25,
+            "fields": {
+                "name": "Can add expense",
+                "content_type": 7,
+                "codename": "add_expense"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 26,
+            "fields": {
+                "name": "Can change expense",
+                "content_type": 7,
+                "codename": "change_expense"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 27,
+            "fields": {
+                "name": "Can delete expense",
+                "content_type": 7,
+                "codename": "delete_expense"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 28,
+            "fields": {
+                "name": "Can view expense",
+                "content_type": 7,
+                "codename": "view_expense"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 37,
+            "fields": {
+                "name": "Can add item",
+                "content_type": 10,
+                "codename": "add_item"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 38,
+            "fields": {
+                "name": "Can change item",
+                "content_type": 10,
+                "codename": "change_item"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 39,
+            "fields": {
+                "name": "Can delete item",
+                "content_type": 10,
+                "codename": "delete_item"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 40,
+            "fields": {
+                "name": "Can view item",
+                "content_type": 10,
+                "codename": "view_item"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 49,
+            "fields": {
+                "name": "Can add item image",
+                "content_type": 13,
+                "codename": "add_itemimage"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 50,
+            "fields": {
+                "name": "Can change item image",
+                "content_type": 13,
+                "codename": "change_itemimage"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 51,
+            "fields": {
+                "name": "Can delete item image",
+                "content_type": 13,
+                "codename": "delete_itemimage"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 52,
+            "fields": {
+                "name": "Can view item image",
+                "content_type": 13,
+                "codename": "view_itemimage"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 29,
+            "fields": {
+                "name": "Can add order",
+                "content_type": 8,
+                "codename": "add_order"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 30,
+            "fields": {
+                "name": "Can change order",
+                "content_type": 8,
+                "codename": "change_order"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 31,
+            "fields": {
+                "name": "Can delete order",
+                "content_type": 8,
+                "codename": "delete_order"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 32,
+            "fields": {
+                "name": "Can view order",
+                "content_type": 8,
+                "codename": "view_order"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 33,
+            "fields": {
+                "name": "Can add order item",
+                "content_type": 9,
+                "codename": "add_orderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 34,
+            "fields": {
+                "name": "Can change order item",
+                "content_type": 9,
+                "codename": "change_orderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 35,
+            "fields": {
+                "name": "Can delete order item",
+                "content_type": 9,
+                "codename": "delete_orderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 36,
+            "fields": {
+                "name": "Can view order item",
+                "content_type": 9,
+                "codename": "view_orderitem"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 21,
+            "fields": {
+                "name": "Can add session",
+                "content_type": 6,
+                "codename": "add_session"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 22,
+            "fields": {
+                "name": "Can change session",
+                "content_type": 6,
+                "codename": "change_session"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 23,
+            "fields": {
+                "name": "Can delete session",
+                "content_type": 6,
+                "codename": "delete_session"
+            }
+        },
+        {
+            "model": "auth.permission",
+            "pk": 24,
+            "fields": {
+                "name": "Can view session",
+                "content_type": 6,
+                "codename": "view_session"
+            }
+        }
+    ],
+    "auth.Group": [],
+    "auth.User": [
+        {
+            "model": "auth.user",
+            "pk": 1,
+            "fields": {
+                "password": "pbkdf2_sha256$870000$hVQ2WCOvANZd6Zwatg4MoR$Cb+G2gKUpY7NjTrWuYxG1q04K2pWNFgDr/LebUQF910=",
+                "last_login": "2025-02-08T14:16:56.180Z",
+                "is_superuser": true,
+                "username": "admin",
+                "first_name": "",
+                "last_name": "",
+                "email": "x@x.com",
+                "is_staff": true,
+                "is_active": true,
+                "date_joined": "2025-02-01T19:23:40.421Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        },
+        {
+            "model": "auth.user",
+            "pk": 2,
+            "fields": {
+                "password": "pbkdf2_sha256$870000$Sr1ABESTcm0pRuDhF559Bq$EhAcuWFNFo4icT3yRDCZX/d/F623X8OnxBkbQou2A7M=",
+                "last_login": "2025-02-06T17:36:43.096Z",
+                "is_superuser": false,
+                "username": "testuser1",
+                "first_name": "",
+                "last_name": "",
+                "email": "testuser1@gmail.com",
+                "is_staff": false,
+                "is_active": true,
+                "date_joined": "2025-02-06T17:36:42.138Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        },
+        {
+            "model": "auth.user",
+            "pk": 3,
+            "fields": {
+                "password": "pbkdf2_sha256$870000$Sso09N4xqWOmNz9JCVppkU$+Te3KsEqg1262AeBpGh8N8Np0p5Pwo+59Ojq2D9CKm0=",
+                "last_login": "2025-02-10T09:34:58.453Z",
+                "is_superuser": false,
+                "username": "jimmy",
+                "first_name": "",
+                "last_name": "",
+                "email": "jamesshadrack23@gmail.com",
+                "is_staff": false,
+                "is_active": true,
+                "date_joined": "2025-02-07T13:33:57.609Z",
+                "groups": [],
+                "user_permissions": []
+            }
+        }
+    ],
+    "contenttypes.ContentType": [
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 1,
+            "fields": {
+                "app_label": "admin",
+                "model": "logentry"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 2,
+            "fields": {
+                "app_label": "auth",
+                "model": "permission"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 3,
+            "fields": {
+                "app_label": "auth",
+                "model": "group"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 4,
+            "fields": {
+                "app_label": "auth",
+                "model": "user"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 5,
+            "fields": {
+                "app_label": "contenttypes",
+                "model": "contenttype"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 6,
+            "fields": {
+                "app_label": "sessions",
+                "model": "session"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 7,
+            "fields": {
+                "app_label": "pos",
+                "model": "expense"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 8,
+            "fields": {
+                "app_label": "pos",
+                "model": "order"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 9,
+            "fields": {
+                "app_label": "pos",
+                "model": "orderitem"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 10,
+            "fields": {
+                "app_label": "pos",
+                "model": "item"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 11,
+            "fields": {
+                "app_label": "pos",
+                "model": "added"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 12,
+            "fields": {
+                "app_label": "pos",
+                "model": "customerorder"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 13,
+            "fields": {
+                "app_label": "pos",
+                "model": "itemimage"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 14,
+            "fields": {
+                "app_label": "pos",
+                "model": "customerorderitem"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 15,
+            "fields": {
+                "app_label": "pos",
+                "model": "cartitem"
+            }
+        },
+        {
+            "model": "contenttypes.contenttype",
+            "pk": 16,
+            "fields": {
+                "app_label": "pos",
+                "model": "cart"
+            }
+        }
+    ],
+    "sessions.Session": [
+        {
+            "model": "sessions.session",
+            "pk": "b2sknpzy650kcpe0g99dzt9bgt9wo75h",
+            "fields": {
+                "session_data": ".eJxVjE0OwiAYBe_C2pCPn4bi0r1nIMADqRpISrtqvLsh6UK3b2bewZzft-L2nla3gF2ZYJffLfj4SnUAPH19NB5b3dYl8KHwk3Z-b0jv2-n-HRTfy6htEFpnRCgyyiYiBWmknY2dJEIEwZKRJpIlqKDnAGHUlDWiFEBmny_XyzfO:1tg5r9:qR499rk-WTncHQJLrMCc2_8GAHQRYDog-_K_nm7J6PQ",
+                "expire_date": "2025-02-20T17:40:03.502Z"
+            }
+        },
+        {
+            "model": "sessions.session",
+            "pk": "cppmrkzjqt1wd4parj0hx3tfxg43eg85",
+            "fields": {
+                "session_data": ".eJxVjE0OwiAYBe_C2pCPn4bi0r1nIMADqRpISrtqvLsh6UK3b2bewZzft-L2nla3gF2ZYJffLfj4SnUAPH19NB5b3dYl8KHwk3Z-b0jv2-n-HRTfy6htEFpnRCgyyiYiBWmknY2dJEIEwZKRJpIlqKDnAGHUlDWiFEBmny_XyzfO:1tgNTN:Lcn9ZLDnR6tRr1cikxk3DFOabndlZXmkC6iLV89hSdQ",
+                "expire_date": "2025-02-21T12:28:41.562Z"
+            }
+        },
+        {
+            "model": "sessions.session",
+            "pk": "ton5p8gowpo7hvbngfvkj3lels6gay09",
+            "fields": {
+                "session_data": ".eJxVjDsOgzAUBO_iOrKeP8iYMn3OgOy3JpBEIGFTIe5OLFEk7c7s7KIPWxn7Lae1nyA6ocTtd4uB32muAK8wPxfJy1zWKcqqyItm-ViQPvfL_QuMIY_17aOydgDDkDM-ERlop33rfKMRGQRPTjsmTzDRthHKmWawYK2A4RvlsBbR7cdxAhSwOxo:1thW0x:wnkGYWraDdB5RcjfMhltNP6gL4yeyEz5ZqIAZ-8sogA",
+                "expire_date": "2025-02-24T15:48:03.281Z"
+            }
+        },
+        {
+            "model": "sessions.session",
+            "pk": "m5cuegfj8opaj8glbp3y678qqcnn2yjl",
+            "fields": {
+                "session_data": ".eJxVjMsOwiAUBf-FtSGlhV5w6d5vIPcBUjU0Ke3K-O_apAvdnpk5LxVxW0vcWlriJOqsBnX63Qj5keoO5I71Nmue67pMpHdFH7Tp6yzpeTncv4OCrXxrGgbijACd9VYIA5hs-jFb8B4NuoQMSME5B-QFCAxzH0JnQ2IZRdT7A_LQOHM:1thQBu:3K2jSKrXCUJVFgsd5hhcnsH2oc9r065hB4kpGftF2hE",
+                "expire_date": "2025-02-24T09:34:58.531Z"
+            }
+        }
+    ],
+    "pos.Item": [
+        {
+            "model": "pos.item",
+            "pk": 3,
+            "fields": {
+                "name": "ALLSOPSS",
+                "unit_price": "200.00",
+                "stock_quantity": 9,
+                "image": "item_images/allsopps.jpeg"
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 4,
+            "fields": {
+                "name": "BALOZI",
+                "unit_price": "210.00",
+                "stock_quantity": 10,
+                "image": "item_images/balozi.jpeg"
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 5,
+            "fields": {
+                "name": "BEST WHISKY 1/4",
+                "unit_price": "450.00",
+                "stock_quantity": 2,
+                "image": "item_images/best-whisky-q.jpeg"
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 6,
+            "fields": {
+                "name": "BEST GIN 1/4",
+                "unit_price": "450.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 7,
+            "fields": {
+                "name": "BEST GIN 3/4",
+                "unit_price": "1100.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 8,
+            "fields": {
+                "name": "BEST CREAM 1/4",
+                "unit_price": "500.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 9,
+            "fields": {
+                "name": "BLACK AND WHITE 1/2",
+                "unit_price": "850.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 10,
+            "fields": {
+                "name": "BLACK AND WHITE 3/4",
+                "unit_price": "1500.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 11,
+            "fields": {
+                "name": "BRAVADO",
+                "unit_price": "70.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 12,
+            "fields": {
+                "name": "COUNTY 1/4",
+                "unit_price": "300.00",
+                "stock_quantity": 4,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 13,
+            "fields": {
+                "name": "COUNTY 3/4",
+                "unit_price": "950.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 14,
+            "fields": {
+                "name": "CHROME V 1/4",
+                "unit_price": "300.00",
+                "stock_quantity": 3,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 15,
+            "fields": {
+                "name": "CHROME V 3/4",
+                "unit_price": "850.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 16,
+            "fields": {
+                "name": "CHROME GIN 1/4",
+                "unit_price": "300.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 17,
+            "fields": {
+                "name": "GUARANA",
+                "unit_price": "250.00",
+                "stock_quantity": 4,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 18,
+            "fields": {
+                "name": "GILBEY'S 1/4",
+                "unit_price": "600.00",
+                "stock_quantity": 4,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 19,
+            "fields": {
+                "name": "GILBEY'S 1/2",
+                "unit_price": "850.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 20,
+            "fields": {
+                "name": "GILBEY'S 3/4",
+                "unit_price": "1600.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 21,
+            "fields": {
+                "name": "GUINNESS",
+                "unit_price": "250.00",
+                "stock_quantity": 12,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 22,
+            "fields": {
+                "name": "DELMONTE",
+                "unit_price": "350.00",
+                "stock_quantity": 3,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 23,
+            "fields": {
+                "name": "GOFRUT",
+                "unit_price": "350.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 24,
+            "fields": {
+                "name": "HUNTER'S 1/4",
+                "unit_price": "450.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 25,
+            "fields": {
+                "name": "HUNTER'S 1/2",
+                "unit_price": "650.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 26,
+            "fields": {
+                "name": "HUNTER'S 3/4",
+                "unit_price": "1300.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 27,
+            "fields": {
+                "name": "KANE EXTRA 1/4",
+                "unit_price": "300.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 28,
+            "fields": {
+                "name": "KANE EXTRA 3/4",
+                "unit_price": "900.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 29,
+            "fields": {
+                "name": "K.C 1/4",
+                "unit_price": "350.00",
+                "stock_quantity": 3,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 30,
+            "fields": {
+                "name": "K.C 1/2",
+                "unit_price": "550.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 31,
+            "fields": {
+                "name": "K.C 3/4",
+                "unit_price": "900.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 32,
+            "fields": {
+                "name": "KIBAO 1/4",
+                "unit_price": "350.00",
+                "stock_quantity": 7,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 33,
+            "fields": {
+                "name": "KIBAO 3/4",
+                "unit_price": "850.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 34,
+            "fields": {
+                "name": "LEMONADE",
+                "unit_price": "100.00",
+                "stock_quantity": 12,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 35,
+            "fields": {
+                "name": "S/MINUTE MAID",
+                "unit_price": "100.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 36,
+            "fields": {
+                "name": "B/MINUTE MAID",
+                "unit_price": "200.00",
+                "stock_quantity": 10,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 37,
+            "fields": {
+                "name": "PILSNER",
+                "unit_price": "210.00",
+                "stock_quantity": 8,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 38,
+            "fields": {
+                "name": "POWER PLAY",
+                "unit_price": "100.00",
+                "stock_quantity": 13,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 39,
+            "fields": {
+                "name": "PREDETOR",
+                "unit_price": "100.00",
+                "stock_quantity": 13,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 40,
+            "fields": {
+                "name": "RED BULL",
+                "unit_price": "300.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 41,
+            "fields": {
+                "name": "S/SODA",
+                "unit_price": "50.00",
+                "stock_quantity": 29,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 42,
+            "fields": {
+                "name": "B/SODA",
+                "unit_price": "100.00",
+                "stock_quantity": 18,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 43,
+            "fields": {
+                "name": "S/DASANI",
+                "unit_price": "50.00",
+                "stock_quantity": 14,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 44,
+            "fields": {
+                "name": "B/DASANI",
+                "unit_price": "100.00",
+                "stock_quantity": 12,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 45,
+            "fields": {
+                "name": "TRIPLE ACE 1/4",
+                "unit_price": "300.00",
+                "stock_quantity": 3,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 46,
+            "fields": {
+                "name": "TUSKER",
+                "unit_price": "230.00",
+                "stock_quantity": 7,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 47,
+            "fields": {
+                "name": "CIDER",
+                "unit_price": "300.00",
+                "stock_quantity": 6,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 48,
+            "fields": {
+                "name": "VAT 69 1/2",
+                "unit_price": "1000.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 49,
+            "fields": {
+                "name": "VAT 69 3/4",
+                "unit_price": "2000.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 50,
+            "fields": {
+                "name": "V & A 1/4",
+                "unit_price": "450.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 51,
+            "fields": {
+                "name": "V & A 3/4",
+                "unit_price": "1300.00",
+                "stock_quantity": 0,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 52,
+            "fields": {
+                "name": "VICEROY 1/4",
+                "unit_price": "600.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 53,
+            "fields": {
+                "name": "VICEROY 1/2",
+                "unit_price": "900.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 54,
+            "fields": {
+                "name": "VICEROY 3/4",
+                "unit_price": "1800.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 55,
+            "fields": {
+                "name": "RICHOT 1/4",
+                "unit_price": "600.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 56,
+            "fields": {
+                "name": "RICHOT 1/2",
+                "unit_price": "850.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 57,
+            "fields": {
+                "name": "WHITE CAP",
+                "unit_price": "250.00",
+                "stock_quantity": 11,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 58,
+            "fields": {
+                "name": "4TH STREET",
+                "unit_price": "1350.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 59,
+            "fields": {
+                "name": "BOND 7 1/4",
+                "unit_price": "600.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 60,
+            "fields": {
+                "name": "Kingfisher",
+                "unit_price": "280.00",
+                "stock_quantity": 9,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 61,
+            "fields": {
+                "name": "BEST WHISKY 3/4",
+                "unit_price": "1100.00",
+                "stock_quantity": 1,
+                "image": "item_images/best-whisky-mzinga.jpeg"
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 62,
+            "fields": {
+                "name": "CAPTAIN MORGAN 1/4",
+                "unit_price": "450.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 63,
+            "fields": {
+                "name": "CAPTAIN MORGAN 3/4",
+                "unit_price": "1500.00",
+                "stock_quantity": 2,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 64,
+            "fields": {
+                "name": "GM 1/4",
+                "unit_price": "350.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 65,
+            "fields": {
+                "name": "GM 3/4",
+                "unit_price": "950.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 66,
+            "fields": {
+                "name": "TASKER LITE",
+                "unit_price": "250.00",
+                "stock_quantity": 10,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 67,
+            "fields": {
+                "name": "TASKER MALT",
+                "unit_price": "250.00",
+                "stock_quantity": 8,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 68,
+            "fields": {
+                "name": "NOVIDA",
+                "unit_price": "70.00",
+                "stock_quantity": 18,
+                "image": ""
+            }
+        },
+        {
+            "model": "pos.item",
+            "pk": 69,
+            "fields": {
+                "name": "Test Item",
+                "unit_price": "200.00",
+                "stock_quantity": 1,
+                "image": ""
+            }
+        }
+    ],
+    "pos.ItemImage": [],
+    "pos.Order": [
+        {
+            "model": "pos.order",
+            "pk": 12,
+            "fields": {
+                "user": null,
+                "table_number": 1,
+                "created_at": "2025-02-03T13:07:43.980Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 13,
+            "fields": {
+                "user": null,
+                "table_number": 2,
+                "created_at": "2025-02-03T16:05:46.241Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 14,
+            "fields": {
+                "user": null,
+                "table_number": 3,
+                "created_at": "2025-02-04T14:23:58.312Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 15,
+            "fields": {
+                "user": null,
+                "table_number": 4,
+                "created_at": "2025-02-04T14:25:47.161Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 16,
+            "fields": {
+                "user": null,
+                "table_number": 5,
+                "created_at": "2025-02-04T15:28:19.496Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 17,
+            "fields": {
+                "user": null,
+                "table_number": 6,
+                "created_at": "2025-02-04T15:29:23.754Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 18,
+            "fields": {
+                "user": null,
+                "table_number": 7,
+                "created_at": "2025-02-04T16:05:04.987Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 19,
+            "fields": {
+                "user": null,
+                "table_number": 8,
+                "created_at": "2025-02-05T14:34:21.288Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 20,
+            "fields": {
+                "user": null,
+                "table_number": 10,
+                "created_at": "2025-02-05T15:19:30.631Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 21,
+            "fields": {
+                "user": null,
+                "table_number": 11,
+                "created_at": "2025-02-05T15:52:08.532Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 22,
+            "fields": {
+                "user": 2,
+                "table_number": 12,
+                "created_at": "2025-02-08T14:18:17.969Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 23,
+            "fields": {
+                "user": 1,
+                "table_number": 13,
+                "created_at": "2025-02-08T14:59:26.827Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 24,
+            "fields": {
+                "user": null,
+                "table_number": 14,
+                "created_at": "2025-02-10T09:19:00.872Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 25,
+            "fields": {
+                "user": null,
+                "table_number": 14,
+                "created_at": "2025-02-10T09:25:33.660Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 26,
+            "fields": {
+                "user": null,
+                "table_number": 14,
+                "created_at": "2025-02-10T09:30:28.945Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 27,
+            "fields": {
+                "user": null,
+                "table_number": 2,
+                "created_at": "2025-02-10T09:31:06.983Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 28,
+            "fields": {
+                "user": null,
+                "table_number": 2,
+                "created_at": "2025-02-10T09:32:03.202Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 29,
+            "fields": {
+                "user": null,
+                "table_number": 15,
+                "created_at": "2025-02-10T09:56:52.264Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 30,
+            "fields": {
+                "user": null,
+                "table_number": 15,
+                "created_at": "2025-02-10T10:03:45.465Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 31,
+            "fields": {
+                "user": null,
+                "table_number": 20,
+                "created_at": "2025-02-10T15:35:26.380Z",
+                "is_paid": false
+            }
+        },
+        {
+            "model": "pos.order",
+            "pk": 32,
+            "fields": {
+                "user": 3,
+                "table_number": 1,
+                "created_at": "2025-02-12T09:39:59.957Z",
+                "is_paid": false
+            }
+        }
+    ],
+    "pos.OrderItem": [
+        {
+            "model": "pos.orderitem",
+            "pk": 20,
+            "fields": {
+                "order": 12,
+                "item": 41,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 21,
+            "fields": {
+                "order": 13,
+                "item": 39,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 22,
+            "fields": {
+                "order": 14,
+                "item": 21,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 23,
+            "fields": {
+                "order": 14,
+                "item": 30,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 24,
+            "fields": {
+                "order": 14,
+                "item": 41,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 25,
+            "fields": {
+                "order": 14,
+                "item": 39,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 26,
+            "fields": {
+                "order": 15,
+                "item": 3,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 27,
+            "fields": {
+                "order": 15,
+                "item": 4,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 28,
+            "fields": {
+                "order": 15,
+                "item": 17,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 29,
+            "fields": {
+                "order": 15,
+                "item": 4,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 30,
+            "fields": {
+                "order": 15,
+                "item": 3,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 31,
+            "fields": {
+                "order": 16,
+                "item": 21,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 32,
+            "fields": {
+                "order": 16,
+                "item": 4,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 33,
+            "fields": {
+                "order": 17,
+                "item": 21,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 34,
+            "fields": {
+                "order": 16,
+                "item": 4,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 35,
+            "fields": {
+                "order": 16,
+                "item": 21,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 38,
+            "fields": {
+                "order": 19,
+                "item": 41,
+                "quantity": 3
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 39,
+            "fields": {
+                "order": 20,
+                "item": 69,
+                "quantity": 2
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 40,
+            "fields": {
+                "order": 21,
+                "item": 68,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 41,
+            "fields": {
+                "order": 22,
+                "item": 69,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 42,
+            "fields": {
+                "order": 23,
+                "item": 69,
+                "quantity": 3
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 43,
+            "fields": {
+                "order": 28,
+                "item": 3,
+                "quantity": 5
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 44,
+            "fields": {
+                "order": 29,
+                "item": 3,
+                "quantity": 7
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 45,
+            "fields": {
+                "order": 29,
+                "item": 4,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 46,
+            "fields": {
+                "order": 30,
+                "item": 3,
+                "quantity": 7
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 47,
+            "fields": {
+                "order": 30,
+                "item": 4,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 48,
+            "fields": {
+                "order": 30,
+                "item": 69,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 49,
+            "fields": {
+                "order": 31,
+                "item": 4,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 50,
+            "fields": {
+                "order": 31,
+                "item": 5,
+                "quantity": 1
+            }
+        },
+        {
+            "model": "pos.orderitem",
+            "pk": 51,
+            "fields": {
+                "order": 32,
+                "item": 46,
+                "quantity": 2
+            }
+        }
+    ],
+    "pos.CustomerOrder": [],
+    "pos.CustomerOrderItem": [],
+    "pos.Expense": [],
+    "pos.Added": [],
+    "pos.Cart": [],
+    "pos.CartItem": []
+}
